@@ -15,6 +15,7 @@
 		BF1D4F2B221F20A9000B95D5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D4F29221F20A9000B95D5 /* TabBarController.swift */; };
 		BF1D4F31221F38DD000B95D5 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D4F2F221F38DD000B95D5 /* CustomCollectionViewCell.swift */; };
 		BF1D4F32221F38DD000B95D5 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1D4F30221F38DD000B95D5 /* CustomCollectionViewCell.xib */; };
+		BF202AFD222866B90040F010 /* FoodItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF202AFC222866B90040F010 /* FoodItemCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BF1D4F29221F20A9000B95D5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BF1D4F2F221F38DD000B95D5 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF1D4F30221F38DD000B95D5 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		BF202AFC222866B90040F010 /* FoodItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		BF439FCC2225BBAB00BCDF9A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF202AFC222866B90040F010 /* FoodItemCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,8 +94,8 @@
 		BF439FCD2225BBB000BCDF9A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				79EBBE28221340D8006C4341 /* HomeViewController.swift */,
 				BF1D4F29221F20A9000B95D5 /* TabBarController.swift */,
+				79EBBE28221340D8006C4341 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				79EBBE29221340D8006C4341 /* HomeViewController.swift in Sources */,
 				79EBBE27221340D8006C4341 /* AppDelegate.swift in Sources */,
 				BF1D4F2B221F20A9000B95D5 /* TabBarController.swift in Sources */,
+				BF202AFD222866B90040F010 /* FoodItemCollectionView.swift in Sources */,
 				BF1D4F31221F38DD000B95D5 /* CustomCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -81,7 +81,12 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="339" height="200"/>
             <connections>
-                <outlet property="imageView" destination="wgR-pM-OQQ" id="kPn-lA-206"/>
+                <outlet property="estimatedTimeLabel" destination="FTg-An-6eN" id="cEJ-0Z-BfE"/>
+                <outlet property="foodItemImageView" destination="wgR-pM-OQQ" id="Ckg-rF-2rv"/>
+                <outlet property="foodTitleLabel" destination="Dv8-ea-8Q2" id="h1q-uZ-pBB"/>
+                <outlet property="foodTypeLabel" destination="AnC-Fk-9t5" id="8ad-ob-JHT"/>
+                <outlet property="priceLabel" destination="QhG-Fu-1ep" id="BzD-C1-DCj"/>
+                <outlet property="ratingLabel" destination="zvv-go-pRx" id="A6j-qz-n56"/>
             </connections>
             <point key="canvasLocation" x="-333.60000000000002" y="-23.388305847076463"/>
         </collectionViewCell>

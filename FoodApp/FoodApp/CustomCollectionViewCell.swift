@@ -10,15 +10,25 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var foodItemImageView: UIImageView!
+    @IBOutlet weak var foodTitleLabel: UILabel!
+    @IBOutlet weak var foodTypeLabel: UILabel!
+    @IBOutlet weak var estimatedTimeLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        imageView.layer.cornerRadius = 6.0;
-        imageView.layer.masksToBounds = true
-        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-
+    
         self.backgroundColor = .white
+        
+        setupImageView()
     }
+    
+    func setupImageView() {
+        foodItemImageView.layer.cornerRadius = 6.0;
+        foodItemImageView.layer.masksToBounds = true
+        foodItemImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    
 }

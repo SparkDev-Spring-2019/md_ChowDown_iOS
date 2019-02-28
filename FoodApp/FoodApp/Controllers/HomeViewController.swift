@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         view.backgroundColor = UIColor.blue
         
+        
         collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
         
         view.addSubview(collectionView)
@@ -42,8 +43,8 @@ class HomeViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         
-        self.navigationController?.navigationItem.title = "ChowDown"
-        navigationItem.title = "ChowDown"
+        self.title = "ChowDown"
+        navigationController?.title = "yeet"
     }
 }
     
