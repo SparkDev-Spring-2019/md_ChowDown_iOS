@@ -8,6 +8,7 @@
 
 import UIKit
 
+// WIP
 class FoodItemCollectionView: UIView {
     lazy var flowLayout: UICollectionViewFlowLayout = {
         var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -37,6 +38,7 @@ class FoodItemCollectionView: UIView {
         self.backgroundColor = .gray
 
         setupCollectionViewConstraints()
+        print("Runs")
     }
 
     required init?(coder aDecoder: NSCoder) {
