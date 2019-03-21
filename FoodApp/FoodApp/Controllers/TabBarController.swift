@@ -14,24 +14,20 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         title = "ChowDown"
 
-        // Do any additional setup after loading the view.
         let firstViewController = HomeViewController()
+        firstViewController.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
         
-        firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
+        let secondViewController = SearchViewController()
+        secondViewController.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 1)
         
-        let secondViewController = HomeViewController()
+        let thirdViewController = ShoppingCartViewController()
+        thirdViewController.tabBarItem = UITabBarItem(title: "Shopping Cart", image: nil, tag: 2)
         
-        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        let fourthViewController = ProfileViewController()
+        fourthViewController.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 3)
         
-        let thirdViewController = HomeViewController()
-        
-        thirdViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 2)
-        
-        let fourthViewController = HomeViewController()
-        
-        fourthViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 3)
-        
-        viewControllers = [firstViewController, secondViewController, thirdViewController, fourthViewController]
+        let viewControllersList = [firstViewController, secondViewController, thirdViewController, fourthViewController]
+        let a = viewControllersList.map { UINavigationController(rootViewController: $0)}
+        viewControllers = a
     }
-    
 }
