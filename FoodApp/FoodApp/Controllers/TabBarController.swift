@@ -15,19 +15,19 @@ class TabBarController: UITabBarController {
         title = "ChowDown"
 
         let firstViewController = HomeViewController()
-        firstViewController.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
+        //firstViewController.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
         
         let secondViewController = SearchViewController()
-        secondViewController.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 1)
+       // secondViewController.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 1)
         
         let thirdViewController = ShoppingCartViewController()
-        thirdViewController.tabBarItem = UITabBarItem(title: "Shopping Cart", image: nil, tag: 2)
+        //thirdViewController.tabBarItem = UITabBarItem(title: "Shopping Cart", image: nil, tag: 2)
         
         let fourthViewController = ProfileViewController()
-        fourthViewController.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 3)
+       // fourthViewController.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 3)
         
         let viewControllersList = [firstViewController, secondViewController, thirdViewController, fourthViewController]
-        let a = viewControllersList.map { UINavigationController(rootViewController: $0)}
-        viewControllers = a
+        let navigationControllers = viewControllersList.map { UINavigationController(rootViewController: $0)}
+        viewControllers = navigationControllers
     }
 }

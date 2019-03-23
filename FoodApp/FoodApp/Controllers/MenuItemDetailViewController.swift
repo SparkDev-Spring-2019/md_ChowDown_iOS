@@ -10,7 +10,9 @@ import UIKit
 
 class MenuItemDetailViewController: UIViewController {
     
-    var menuItem: MenuItem
+    var pages =  [UIViewController]()
+    
+    var menuItem =  MenuItem()
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -52,6 +54,10 @@ class MenuItemDetailViewController: UIViewController {
         return segmentedControl
     }()
     
+    var selectedSegmentIndex: Int {
+        return segmentedControl.selectedSegmentIndex
+    }
+    
     lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, ratingsLabel, segmentedControl])
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,16 +69,15 @@ class MenuItemDetailViewController: UIViewController {
     }()
 
     private lazy var pageViewController: UIPageViewController = {
-        let pageViewController = UIPageViewController(transitionStyle: .pageCurl,
+        let pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                       navigationOrientation: .horizontal,
                                                       options: nil)
-        pageViewController.dataSource = self
+        //pageViewController.dataSource = self
         pageViewController.view.backgroundColor = .lightGray
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+//        pageViewController.setViewControllers([OrderPageViewController(item: MenuItem()), DescriptionViewController(), RatingsViewController()], direction: .forward, animated: true)
         
-        view.addSubview(pageViewController.view)
-        addChild(pageViewController)
-        pageViewController.didMove(toParent: self)
+        
         return pageViewController
     }()
     
@@ -83,17 +88,18 @@ class MenuItemDetailViewController: UIViewController {
         
         view.addSubview(stackView)
         setupUI()
+        
+        pages.append(OrderPageViewController(item: MenuItem()))
+        pages.append(DescriptionViewController())
+        pages.append(RatingsViewController())
+        
+        pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: .forward, animated: true)
+
     }
   
-    init(item: MenuItem) {
-        menuItem = item
 
-        super.init(nibName: nil, bundle: nil)
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
     
     func setupUI() {
         view.addConstraints([
@@ -102,29 +108,20 @@ class MenuItemDetailViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
             ])
+        
+        view.addSubview(pageViewController.view)
+        addChild(pageViewController)
+        pageViewController.didMove(toParent: self)
+        
+        view.addConstraints([
+            pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            pageViewController.view.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
     }
     
     @objc func valueChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            print()
-        case 1:
-            print()
-        case 2:
-            print()
-        default: return
-        }
+        pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: .forward, animated: true)
     }
-}
-// these funcs won't be called right 
-extension MenuItemDetailViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        return nil
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        return nil
-    }
-    
-    
 }

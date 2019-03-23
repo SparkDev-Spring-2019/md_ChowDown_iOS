@@ -22,8 +22,8 @@ class ShoppingCartViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       // title = "Shopping Cart"
+        
+        view.backgroundColor = .white
     }
     
 

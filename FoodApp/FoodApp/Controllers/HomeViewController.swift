@@ -74,7 +74,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // let item = dataSource.item(at: indexPath.row)
-        let detailViewController = MenuItemDetailViewController(item: MenuItem())
+        let detailViewController = MenuItemDetailViewController()
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

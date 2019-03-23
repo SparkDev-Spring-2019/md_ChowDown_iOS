@@ -15,6 +15,8 @@
 		79EBBE31221340DA006C4341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EBBE2F221340DA006C4341 /* LaunchScreen.storyboard */; };
 		B599769FA18FFF14459F2FCF /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7EB9ABB21F02BA5F1AC2A /* Pods_FoodApp.framework */; };
 		BF0A38E02243FD6400651A6E /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A38DF2243FD6400651A6E /* OrderViewController.swift */; };
+		BF0A38E2224416E900651A6E /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A38E1224416E900651A6E /* DescriptionViewController.swift */; };
+		BF0A38E42244175800651A6E /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A38E32244175800651A6E /* RatingsViewController.swift */; };
 		BF1D4F2B221F20A9000B95D5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D4F29221F20A9000B95D5 /* TabBarController.swift */; };
 		BF1D4F31221F38DD000B95D5 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D4F2F221F38DD000B95D5 /* CustomCollectionViewCell.swift */; };
 		BF1D4F32221F38DD000B95D5 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1D4F30221F38DD000B95D5 /* CustomCollectionViewCell.xib */; };
@@ -28,7 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		79AA0B9D22440C1400B18A88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79AA0B9D22440C1400B18A88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79EBBE23221340D8006C4341 /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EBBE26221340D8006C4341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79EBBE28221340D8006C4341 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +41,8 @@
 		7A136462236305D5C1B0116E /* Pods-FoodApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodApp/Pods-FoodApp.debug.xcconfig"; sourceTree = "<group>"; };
 		94B7EB9ABB21F02BA5F1AC2A /* Pods_FoodApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF0A38DF2243FD6400651A6E /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		BF0A38E1224416E900651A6E /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		BF0A38E32244175800651A6E /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
 		BF1D4F29221F20A9000B95D5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BF1D4F2F221F38DD000B95D5 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF1D4F30221F38DD000B95D5 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -70,7 +74,6 @@
 				7A136462236305D5C1B0116E /* Pods-FoodApp.debug.xcconfig */,
 				D59F8127439E5E39BB747D7F /* Pods-FoodApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -104,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				BF0A38DF2243FD6400651A6E /* OrderViewController.swift */,
+				BF0A38E1224416E900651A6E /* DescriptionViewController.swift */,
+				BF0A38E32244175800651A6E /* RatingsViewController.swift */,
 			);
 			path = PageViewControllers;
 			sourceTree = "<group>";
@@ -129,8 +134,8 @@
 			children = (
 				BF1D4F29221F20A9000B95D5 /* TabBarController.swift */,
 				79EBBE28221340D8006C4341 /* HomeViewController.swift */,
-				BF0A38DE2243FCF400651A6E /* PageViewControllers */,
 				BF509C51223C78DA0064AF82 /* MenuItemDetailViewController.swift */,
+				BF0A38DE2243FCF400651A6E /* PageViewControllers */,
 				BF509C4B223C1B4F0064AF82 /* SearchViewController.swift */,
 				BF509C4D223C1B6A0064AF82 /* ShoppingCartViewController.swift */,
 				BF509C4F223C1B740064AF82 /* ProfileViewController.swift */,
@@ -287,12 +292,14 @@
 			files = (
 				BF509C4C223C1B4F0064AF82 /* SearchViewController.swift in Sources */,
 				BF509C4E223C1B6A0064AF82 /* ShoppingCartViewController.swift in Sources */,
+				BF0A38E2224416E900651A6E /* DescriptionViewController.swift in Sources */,
 				79EBBE29221340D8006C4341 /* HomeViewController.swift in Sources */,
 				79EBBE27221340D8006C4341 /* AppDelegate.swift in Sources */,
 				BF509C52223C78DA0064AF82 /* MenuItemDetailViewController.swift in Sources */,
 				BF1D4F2B221F20A9000B95D5 /* TabBarController.swift in Sources */,
 				BF202AFD222866B90040F010 /* FoodItemCollectionView.swift in Sources */,
 				BF509C50223C1B740064AF82 /* ProfileViewController.swift in Sources */,
+				BF0A38E42244175800651A6E /* RatingsViewController.swift in Sources */,
 				BF1D4F31221F38DD000B95D5 /* CustomCollectionViewCell.swift in Sources */,
 				BF509C782240661F0064AF82 /* Extensions.swift in Sources */,
 				BF509C54223C79050064AF82 /* MenuItem.swift in Sources */,
