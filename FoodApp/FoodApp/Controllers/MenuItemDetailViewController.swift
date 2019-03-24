@@ -72,12 +72,7 @@ class MenuItemDetailViewController: UIViewController {
         let pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                       navigationOrientation: .horizontal,
                                                       options: nil)
-        //pageViewController.dataSource = self
-        pageViewController.view.backgroundColor = .lightGray
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-//        pageViewController.setViewControllers([OrderPageViewController(item: MenuItem()), DescriptionViewController(), RatingsViewController()], direction: .forward, animated: true)
-        
-        
         return pageViewController
     }()
     
@@ -85,7 +80,6 @@ class MenuItemDetailViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
         view.addSubview(stackView)
         setupUI()
         
@@ -97,10 +91,6 @@ class MenuItemDetailViewController: UIViewController {
 
     }
   
-
-    
-
-    
     func setupUI() {
         view.addConstraints([
             stackView.topAnchor.constraint(equalTo: view.topAnchor),

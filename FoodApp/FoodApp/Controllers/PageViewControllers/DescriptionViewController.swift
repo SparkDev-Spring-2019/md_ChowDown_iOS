@@ -28,8 +28,8 @@ class DescriptionViewController: UIViewController {
     func setupUI() {
         view.addConstraints([
             descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }

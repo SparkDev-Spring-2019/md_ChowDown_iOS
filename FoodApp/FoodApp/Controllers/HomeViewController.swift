@@ -24,32 +24,51 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.isUserInteractionEnabled = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.addBorder(toSide: .Top, withColor: UIColor.black.cgColor, andThickness: 10) // ??
+
+        return collectionView
+    }()
+    
+    lazy var categoriesCollectionView: UICollectionView = { // move implementation
+        var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 16, bottom: 8, right: 16)
+        layout.itemSize = CGSize(width: view.bounds.size.width / 5, height: 50)
         
+        var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.isUserInteractionEnabled = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "ChowDown"
     }
-    // categoriesCollecionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = .white
         
         collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
+        categoriesCollectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
         
+        view.addSubview(categoriesCollectionView)
         view.addSubview(collectionView)
         
         view.addConstraints([
+            categoriesCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            categoriesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            categoriesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 150),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
-        
-        self.title = "Home"
-    }
+        }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
