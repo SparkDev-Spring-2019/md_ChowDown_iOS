@@ -19,13 +19,14 @@ class DescriptionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .white
-        view.addSubview(descriptionLabel)
+        
         setupUI()
     }
     
     func setupUI() {
+        view.backgroundColor = .white
+        view.addSubview(descriptionLabel)
+        
         view.addConstraints([
             descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),

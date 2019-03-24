@@ -13,7 +13,6 @@ class RatingsViewController: UIViewController {
     // collectionView
     // dynamic height
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

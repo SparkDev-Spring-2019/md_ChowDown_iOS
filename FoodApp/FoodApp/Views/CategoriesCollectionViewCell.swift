@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
-class CustomCategoriesCell: UICollectionViewCell {
+class CategoriesCollectionViewCell: UICollectionViewCell {
     
+    static let reuseID = String(describing: CategoriesCollectionViewCell.self)
+
     lazy var categoryTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

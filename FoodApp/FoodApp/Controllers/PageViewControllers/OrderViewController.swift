@@ -8,9 +8,18 @@
 
 import UIKit
 
-class OrderPageViewController: UIViewController {
+class OrderViewController: UIViewController {
     
     private var menuItem: MenuItem?
+    
+    private let sizes = ["Small", "Medium", "Large"]
+    
+    private lazy var sizeLabel: UITextView = {
+        let label = UITextView()
+        label.text = "Choose Size"
+        label.isUserInteractionEnabled = true
+        return label
+    }()
     
     private lazy var picker: UIPickerView = {
         let picker = UIPickerView()
@@ -20,12 +29,14 @@ class OrderPageViewController: UIViewController {
     
     private lazy var stepper: UIStepper = {
        let stepper = UIStepper()
-        
+        stepper.stepValue = 1
+        stepper.minimumValue = 1
+        stepper.maximumValue = 4
         return stepper
     }()
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [picker, stepper])
+        let stackView = UIStackView(arrangedSubviews: [sizeLabel, stepper])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -40,6 +51,11 @@ class OrderPageViewController: UIViewController {
         view.addSubview(stackView)
         setupUI()
         view.backgroundColor = .white
+        
+        picker.dataSource = self
+        picker.delegate = self
+        
+        sizeLabel.inputView = picker
     }
     
     init(item: MenuItem) {
@@ -53,15 +69,51 @@ class OrderPageViewController: UIViewController {
     }
     
     func setupUI() {
+           // stackView.pinToEdges()
         view.addConstraints([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
     
     func configure(item: MenuItem) {
         menuItem = item
+    }
+}
+
+extension OrderViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    // not sure at all about some of these funcs
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 3 // small medium large
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return sizes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        var label: UILabel
+        
+        if let view = view as? UILabel {
+            label = view
+        } else {
+            label = UILabel()
+        }
+        
+        label.textAlignment = .center
+        label.text = sizes[row]
+        return label
     }
 }

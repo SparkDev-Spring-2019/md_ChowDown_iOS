@@ -11,13 +11,13 @@ import UIKit
 class HomeViewController: UIViewController {
     var dataSource = [MenuItem]()
    
-    lazy var collectionView: UICollectionView = { // move implementation 
-        var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    lazy var menuItemsCollectionView: UICollectionView = { // move implementation 
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 20, left: 16, bottom: 8, right: 16)
         layout.itemSize = CGSize(width: view.bounds.size.width - 32, height: 200)
-    
-        var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.layer.cornerRadius = 6.0
         collectionView.delegate = self
@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
         collectionView.isUserInteractionEnabled = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.addBorder(toSide: .Top, withColor: UIColor.black.cgColor, andThickness: 10) // ??
-
         return collectionView
     }()
     
@@ -50,25 +49,30 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
+        }
+    
+    func setupUI() {
         view.backgroundColor = .white
         
-        collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
-        categoriesCollectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
+        menuItemsCollectionView.register(UINib(nibName: "MenuItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MenuItemCollectionViewCell.reuseID)
+        categoriesCollectionView.register(UINib(nibName: "MenuItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MenuItemCollectionViewCell.reuseID)
         
         view.addSubview(categoriesCollectionView)
-        view.addSubview(collectionView)
+        view.addSubview(menuItemsCollectionView)
         
         view.addConstraints([
             categoriesCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
             categoriesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             categoriesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             categoriesCollectionView.heightAnchor.constraint(equalToConstant: 150),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            menuItemsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            menuItemsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            menuItemsCollectionView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor),
+            menuItemsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
-        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -77,18 +81,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
         
-        cell.backgroundColor = .white
-        cell.layer.borderWidth = 0.8
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.cornerRadius = 6.0
-        cell.layer.shadowColor = UIColor.gray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        cell.layer.shadowRadius = 3.0
-        cell.layer.shadowOpacity = 1.0
-        cell.layer.masksToBounds = false
-        return cell
+            if collectionView == self.menuItemsCollectionView {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
+                return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

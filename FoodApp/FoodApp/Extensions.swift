@@ -57,3 +57,16 @@ extension UICollectionView {
     }
 }
 
+extension UIView {
+    func pinToEdges() {
+        if let superView = superview {
+            addConstraints([
+                self.topAnchor.constraint(equalTo: superView.topAnchor),
+                self.leadingAnchor.constraint(equalTo: superView.leadingAnchor),
+                self.trailingAnchor.constraint(equalTo: superView.trailingAnchor),
+                self.bottomAnchor.constraint(equalTo: superView.bottomAnchor)
+                ])
+        }
+    }
+}
+

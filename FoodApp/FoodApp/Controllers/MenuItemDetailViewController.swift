@@ -14,6 +14,16 @@ class MenuItemDetailViewController: UIViewController {
     
     var menuItem =  MenuItem()
     
+    var selectedSegmentIndex: Int {
+        return segmentedControl.selectedSegmentIndex
+    }
+    
+    var pagingForward: Bool {
+        return selectedViewController < selectedSegmentIndex
+    }
+    
+    var selectedViewController = 0
+    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "pizzapic")
@@ -54,10 +64,6 @@ class MenuItemDetailViewController: UIViewController {
         return segmentedControl
     }()
     
-    var selectedSegmentIndex: Int {
-        return segmentedControl.selectedSegmentIndex
-    }
-    
     lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, ratingsLabel, segmentedControl])
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,31 +85,26 @@ class MenuItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        view.addSubview(stackView)
         setupUI()
-        
-        pages.append(OrderPageViewController(item: MenuItem()))
-        pages.append(DescriptionViewController())
-        pages.append(RatingsViewController())
+        setPages()
         
         pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: .forward, animated: true)
-
     }
   
     func setupUI() {
-        view.addConstraints([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
-            ])
         
+        view.backgroundColor = .white
+        
+        view.addSubview(stackView)
         view.addSubview(pageViewController.view)
         addChild(pageViewController)
         pageViewController.didMove(toParent: self)
         
         view.addConstraints([
+            stackView.topAnchor.constraint(equalTo: view.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7),
             pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageViewController.view.topAnchor.constraint(equalTo: stackView.bottomAnchor),
             pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -111,7 +112,18 @@ class MenuItemDetailViewController: UIViewController {
             ])
     }
     
+    func setPages() {
+        pages.append(OrderViewController(item: MenuItem()))
+        pages.append(DescriptionViewController())
+        pages.append(RatingsViewController())
+    }
+    
     @objc func valueChanged(_ sender: UISegmentedControl) {
-        pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: .forward, animated: true)
+        if pagingForward {
+            pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: UIPageViewController.NavigationDirection.forward, animated: true)
+        } else {
+            pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: UIPageViewController.NavigationDirection.reverse, animated: true)
+        }
+        selectedViewController = selectedSegmentIndex
     }
 }
