@@ -16,9 +16,8 @@ class HomeViewController: UIViewController {
     lazy var categoriesCollectionView: UICollectionView = { // move implementation
         var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        layout.itemSize = CGSize(width: (view.bounds.size.width / 5).rounded(), height: (46))
+        layout.itemSize = CGSize(width: (view.bounds.size.width / 5).rounded(), height: 46)
         
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -73,8 +72,9 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         
         menuItemsCollectionView.register(UINib(nibName: "MenuItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MenuItemCollectionViewCell.reuseID)
-        categoriesCollectionView.register(UINib(nibName: "MenuItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MenuItemCollectionViewCell.reuseID)
-        
+        categoriesCollectionView.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: CategoriesCollectionViewCell.reuseID)
+//        categoriesCollectionView.register(UINib(nibName: "MenuItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MenuItemCollectionViewCell.reuseID)
+
         view.addSubview(menuItemsCollectionView)
         view.addSubview(categoriesCollectionView)
 
@@ -83,7 +83,7 @@ class HomeViewController: UIViewController {
             categoriesCollectionView.topAnchor.constraint(equalTo: margins.topAnchor),
             categoriesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -2),
             categoriesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 2),
-            categoriesCollectionView.heightAnchor.constraint(equalToConstant: (64)),
+            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 64),
             menuItemsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             menuItemsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             menuItemsCollectionView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 4),
@@ -103,7 +103,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
                 return cell
             } else { // categoriesCollectionView
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.reuseID, for: indexPath) as! CategoriesCollectionViewCell
+//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
                 return cell
         }
     }

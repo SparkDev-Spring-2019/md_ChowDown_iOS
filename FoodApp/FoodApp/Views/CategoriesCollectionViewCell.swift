@@ -16,23 +16,26 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     lazy var categoryTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Yah Yeet"
+        label.font = UIFont.preferredFont(forTextStyle: .callout)
+        label.adjustsFontForContentSizeCategory = true
+        label.text = "Y"
         return label
     }()
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        addSubview(categoryTitleLabel)
+        contentView.addSubview(categoryTitleLabel)
         setupUI()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setupUI() {
         
+        let margins = contentView.layoutMarginsGuide
         contentView.addConstraints([
             categoryTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             categoryTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

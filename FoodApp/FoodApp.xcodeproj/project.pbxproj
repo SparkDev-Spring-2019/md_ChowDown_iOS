@@ -126,10 +126,9 @@
 		BF439FCC2225BBAB00BCDF9A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF1D4F30221F38DD000B95D5 /* MenuItemCollectionViewCell.xib */,
 				BF0A39042246682700651A6E /* CategoriesCollectionViewCell.swift */,
 				BF1D4F2F221F38DD000B95D5 /* MenuItemCollectionViewCell.swift */,
-				BF202AFC222866B90040F010 /* FoodItemCollectionView.swift */,
+				BF1D4F30221F38DD000B95D5 /* MenuItemCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,6 +152,7 @@
 			children = (
 				79EBBE26221340D8006C4341 /* AppDelegate.swift */,
 				BF509C772240661F0064AF82 /* Extensions.swift */,
+				BF202AFC222866B90040F010 /* FoodItemCollectionView.swift */,
 				BF439FCD2225BBB000BCDF9A /* Controllers */,
 				BF439FCC2225BBAB00BCDF9A /* Views */,
 				BF439FCB2225BBA400BCDF9A /* Models */,
