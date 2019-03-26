@@ -11,7 +11,32 @@ import UIKit
 class HomeViewController: UIViewController {
     var dataSource = [MenuItem]()
    
-    lazy var menuItemsCollectionView: UICollectionView = { // move implementation 
+   
+    
+    lazy var categoriesCollectionView: UICollectionView = { // move implementation
+        var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.itemSize = CGSize(width: (view.bounds.size.width / 5).rounded(), height: (46))
+        
+        var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .white
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.layer.borderWidth = 0.5
+        collectionView.layer.borderColor = UIColor.lightGray.cgColor
+        collectionView.layer.masksToBounds = false
+        collectionView.layer.shadowColor = UIColor.black.cgColor
+        collectionView.layer.shadowOpacity = 0.8
+        collectionView.layer.shadowOffset = CGSize(width: 0, height: -3.0)
+        collectionView.layer.shadowRadius = 5
+        return collectionView
+    }()
+    
+    lazy var menuItemsCollectionView: UICollectionView = { // move implementation
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
