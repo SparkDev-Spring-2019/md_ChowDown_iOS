@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     lazy var menuItemsCollectionView: UICollectionView = { // move implementation 
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 16, bottom: 8, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         layout.itemSize = CGSize(width: view.bounds.size.width - 32, height: 200)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -24,34 +24,25 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.isUserInteractionEnabled = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.addBorder(toSide: .Top, withColor: UIColor.black.cgColor, andThickness: 10) // ??
         return collectionView
     }()
     
-    lazy var categoriesCollectionView: UICollectionView = { // move implementation
-        var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 16, bottom: 8, right: 16)
-        layout.itemSize = CGSize(width: view.bounds.size.width / 5, height: 50)
+    init() {
+        super.init(nibName: nil, bundle: nil)
         
-        var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.isUserInteractionEnabled = true
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
-    
-    override func viewWillAppear(_ animated: Bool) {
+        title = "Home"
         navigationItem.title = "ChowDown"
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        }
+    }
     
     func setupUI() {
         view.backgroundColor = .white
@@ -59,17 +50,18 @@ class HomeViewController: UIViewController {
         menuItemsCollectionView.register(UINib(nibName: "MenuItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MenuItemCollectionViewCell.reuseID)
         categoriesCollectionView.register(UINib(nibName: "MenuItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MenuItemCollectionViewCell.reuseID)
         
-        view.addSubview(categoriesCollectionView)
         view.addSubview(menuItemsCollectionView)
-        
+        view.addSubview(categoriesCollectionView)
+
+        let margins = view.layoutMarginsGuide
         view.addConstraints([
-            categoriesCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            categoriesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            categoriesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 150),
+            categoriesCollectionView.topAnchor.constraint(equalTo: margins.topAnchor),
+            categoriesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -2),
+            categoriesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 2),
+            categoriesCollectionView.heightAnchor.constraint(equalToConstant: (64)),
             menuItemsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             menuItemsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            menuItemsCollectionView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor),
+            menuItemsCollectionView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 4),
             menuItemsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
@@ -85,7 +77,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if collectionView == self.menuItemsCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
                 return cell
-            } else {
+            } else { // categoriesCollectionView
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
                 return cell
         }
@@ -95,5 +87,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // let item = dataSource.item(at: indexPath.row)
         let detailViewController = MenuItemDetailViewController()
         navigationController?.pushViewController(detailViewController, animated: true)
+        
+        // else if categories, reload collectionview
     }
 }

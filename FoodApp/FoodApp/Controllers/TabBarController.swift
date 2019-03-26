@@ -14,7 +14,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         title = "ChowDown"
 
-        let viewControllerArray =   [HomeViewController(), SearchViewController(), ShoppingCartViewController(), ProfileViewController()]
+        let viewControllerArray: [UIViewController] =   [HomeViewController(), SearchViewController(), ShoppingCartViewController(), ProfileViewController()]
         
         let navigationControllers = viewControllerArray.map { UINavigationController(rootViewController: $0)}
         viewControllers = navigationControllers
