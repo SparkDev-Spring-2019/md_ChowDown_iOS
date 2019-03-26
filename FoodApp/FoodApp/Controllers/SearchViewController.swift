@@ -8,10 +8,23 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+    
+    var data = [MenuItem]()
+    
+    var filteredData = [MenuItem]()
+    
+    lazy var resultSearchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: nil)
+        controller.dimsBackgroundDuringPresentation = false
+        controller.searchBar.sizeToFit()
+        
+        return controller
+    }()
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init() {
+        super.init(style: .plain)
+        
         title = "Search"
     }
     
@@ -22,6 +35,14 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-       //navigationItem.title = "Search"
+        
+        tableView.tableHeaderView = resultSearchController.searchBar
+
+        //tableView.register(UINib(), forCellReuseIdentifier: "")
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
 }
