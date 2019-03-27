@@ -12,8 +12,11 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "ChowDown"
-
+        
+        setupControllers()
+    }
+    
+    func setupControllers() {
         let viewControllerArray: [UIViewController] =   [HomeViewController(), SearchViewController(), ShoppingCartViewController(), ProfileViewController()]
         
         let navigationControllers = viewControllerArray.map { UINavigationController(rootViewController: $0)}
