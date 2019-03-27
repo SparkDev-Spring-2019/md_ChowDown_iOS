@@ -92,7 +92,6 @@ class MenuItemDetailViewController: UIViewController {
     }
   
     func setupUI() {
-        
         view.backgroundColor = .white
         
         view.addSubview(stackView)

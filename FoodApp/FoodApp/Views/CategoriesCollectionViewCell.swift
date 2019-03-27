@@ -34,7 +34,6 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     func setupUI() {
-        
         let margins = contentView.layoutMarginsGuide
         contentView.addConstraints([
             categoryTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
