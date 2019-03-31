@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79388B622251533500B6B8A2 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79388B612251533500B6B8A2 /* UserProfile.swift */; };
+		79735C6F224FE0D600575723 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79735C6E224FE0D600575723 /* FirebaseAPI.swift */; };
+		79735C71224FE19F00575723 /* MenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79735C70224FE19F00575723 /* MenuCategory.swift */; };
 		79AA0B9E22440C1400B18A88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79AA0B9D22440C1400B18A88 /* GoogleService-Info.plist */; };
 		79EBBE27221340D8006C4341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBBE26221340D8006C4341 /* AppDelegate.swift */; };
 		79EBBE29221340D8006C4341 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBBE28221340D8006C4341 /* HomeViewController.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79388B612251533500B6B8A2 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		79735C6E224FE0D600575723 /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
+		79735C70224FE19F00575723 /* MenuCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategory.swift; sourceTree = "<group>"; };
 		79AA0B9D22440C1400B18A88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79EBBE23221340D8006C4341 /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EBBE26221340D8006C4341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				BF509C53223C79050064AF82 /* MenuItem.swift */,
+				79735C6E224FE0D600575723 /* FirebaseAPI.swift */,
+				79735C70224FE19F00575723 /* MenuCategory.swift */,
+				79388B612251533500B6B8A2 /* UserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,9 +276,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FoodApp/Pods-FoodApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -277,9 +290,13 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -302,12 +319,15 @@
 				79EBBE27221340D8006C4341 /* AppDelegate.swift in Sources */,
 				BF509C52223C78DA0064AF82 /* MenuItemDetailViewController.swift in Sources */,
 				BF1D4F2B221F20A9000B95D5 /* TabBarController.swift in Sources */,
+				79735C6F224FE0D600575723 /* FirebaseAPI.swift in Sources */,
+				79388B622251533500B6B8A2 /* UserProfile.swift in Sources */,
 				BF202AFD222866B90040F010 /* FoodItemCollectionView.swift in Sources */,
 				BF0A39052246682700651A6E /* CategoriesCollectionViewCell.swift in Sources */,
 				BF509C50223C1B740064AF82 /* ProfileViewController.swift in Sources */,
 				BF0A38E42244175800651A6E /* RatingsViewController.swift in Sources */,
 				BF1D4F31221F38DD000B95D5 /* MenuItemCollectionViewCell.swift in Sources */,
 				BF509C782240661F0064AF82 /* Extensions.swift in Sources */,
+				79735C71224FE19F00575723 /* MenuCategory.swift in Sources */,
 				BF509C54223C79050064AF82 /* MenuItem.swift in Sources */,
 				BF0A38E02243FD6400651A6E /* OrderViewController.swift in Sources */,
 			);
