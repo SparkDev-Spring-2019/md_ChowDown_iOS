@@ -13,9 +13,7 @@
 		79AA0B9E22440C1400B18A88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79AA0B9D22440C1400B18A88 /* GoogleService-Info.plist */; };
 		79EBBE27221340D8006C4341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBBE26221340D8006C4341 /* AppDelegate.swift */; };
 		79EBBE29221340D8006C4341 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBBE28221340D8006C4341 /* HomeViewController.swift */; };
-		79EBBE2C221340D8006C4341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EBBE2A221340D8006C4341 /* Main.storyboard */; };
 		79EBBE2E221340DA006C4341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EBBE2D221340DA006C4341 /* Assets.xcassets */; };
-		79EBBE31221340DA006C4341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EBBE2F221340DA006C4341 /* LaunchScreen.storyboard */; };
 		B599769FA18FFF14459F2FCF /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7EB9ABB21F02BA5F1AC2A /* Pods_FoodApp.framework */; };
 		BF0A38E02243FD6400651A6E /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A38DF2243FD6400651A6E /* OrderViewController.swift */; };
 		BF0A38E2224416E900651A6E /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A38E1224416E900651A6E /* DescriptionViewController.swift */; };
@@ -41,9 +39,7 @@
 		79EBBE23221340D8006C4341 /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EBBE26221340D8006C4341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79EBBE28221340D8006C4341 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		79EBBE2B221340D8006C4341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79EBBE2D221340DA006C4341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		79EBBE30221340DA006C4341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79EBBE32221340DA006C4341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A136462236305D5C1B0116E /* Pods-FoodApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodApp/Pods-FoodApp.debug.xcconfig"; sourceTree = "<group>"; };
 		94B7EB9ABB21F02BA5F1AC2A /* Pods_FoodApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +89,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		79422E012245506A005AF63A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BF439FCD2225BBB000BCDF9A /* Controllers */,
+				BF439FCC2225BBAB00BCDF9A /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		79422E0422455154005AF63A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				79422E0522455166005AF63A /* Firebase */,
+				BF439FCB2225BBA400BCDF9A /* Models */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		79422E0522455166005AF63A /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				79422E0622455226005AF63A /* FirebaseAPI.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		79422E0822455298005AF63A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				79EBBE2D221340DA006C4341 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		79EBBE1A221340D8006C4341 = {
 			isa = PBXGroup;
 			children = (
@@ -125,9 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				BF509C53223C79050064AF82 /* MenuItem.swift */,
-				79735C6E224FE0D600575723 /* FirebaseAPI.swift */,
-				79735C70224FE19F00575723 /* MenuCategory.swift */,
-				79388B612251533500B6B8A2 /* UserProfile.swift */,
+				791E6A5A2245755000462BA4 /* User.swift */,
+				791E6A5E224583E100462BA4 /* MenuCategory.swift */,
+				791E6A5C2245763D00462BA4 /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,9 +165,10 @@
 		BF439FCC2225BBAB00BCDF9A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF0A39042246682700651A6E /* CategoriesCollectionViewCell.swift */,
-				BF1D4F2F221F38DD000B95D5 /* MenuItemCollectionViewCell.swift */,
-				BF1D4F30221F38DD000B95D5 /* MenuItemCollectionViewCell.xib */,
+				BF509C772240661F0064AF82 /* Extensions.swift */,
+				BF1D4F30221F38DD000B95D5 /* CustomCollectionViewCell.xib */,
+				BF1D4F2F221F38DD000B95D5 /* CustomCollectionViewCell.swift */,
+				BF202AFC222866B90040F010 /* FoodItemCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,7 +265,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79EBBE31221340DA006C4341 /* LaunchScreen.storyboard in Resources */,
 				79EBBE2E221340DA006C4341 /* Assets.xcassets in Resources */,
 				79AA0B9E22440C1400B18A88 /* GoogleService-Info.plist in Resources */,
 				79EBBE2C221340D8006C4341 /* Main.storyboard in Resources */,
@@ -312,12 +342,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				791E6A5F224583E100462BA4 /* MenuCategory.swift in Sources */,
 				BF509C4C223C1B4F0064AF82 /* SearchViewController.swift in Sources */,
 				BF509C4E223C1B6A0064AF82 /* ShoppingCartViewController.swift in Sources */,
 				BF0A38E2224416E900651A6E /* DescriptionViewController.swift in Sources */,
 				79EBBE29221340D8006C4341 /* HomeViewController.swift in Sources */,
+				79422E0722455226005AF63A /* FirebaseAPI.swift in Sources */,
 				79EBBE27221340D8006C4341 /* AppDelegate.swift in Sources */,
 				BF509C52223C78DA0064AF82 /* MenuItemDetailViewController.swift in Sources */,
+				791E6A5B2245755000462BA4 /* User.swift in Sources */,
 				BF1D4F2B221F20A9000B95D5 /* TabBarController.swift in Sources */,
 				79735C6F224FE0D600575723 /* FirebaseAPI.swift in Sources */,
 				79388B622251533500B6B8A2 /* UserProfile.swift in Sources */,
@@ -334,25 +367,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		79EBBE2A221340D8006C4341 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79EBBE2B221340D8006C4341 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		79EBBE2F221340DA006C4341 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79EBBE30221340DA006C4341 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		79EBBE33221340DA006C4341 /* Debug */ = {
@@ -477,7 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HRVS9455XM;
+				DEVELOPMENT_TEAM = RK78J8ZM9R;
 				INFOPLIST_FILE = FoodApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,7 +510,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HRVS9455XM;
+				DEVELOPMENT_TEAM = RK78J8ZM9R;
 				INFOPLIST_FILE = FoodApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
