@@ -10,14 +10,16 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupControllers()
     }
     
+    // MARK: Setup
     func setupControllers() {
-        let viewControllerArray: [UIViewController] =   [HomeViewController(), SearchViewController(), ShoppingCartViewController(), ProfileViewController()]
+        let viewControllerArray: [UIViewController] =   [HomeViewController(), ShoppingCartViewController(), ProfileViewController()]
         
         let navigationControllers = viewControllerArray.map { UINavigationController(rootViewController: $0)}
         viewControllers = navigationControllers

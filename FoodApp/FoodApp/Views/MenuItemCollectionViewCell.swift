@@ -10,8 +10,10 @@ import UIKit
 
 class MenuItemCollectionViewCell: UICollectionViewCell {
     
+    // MARK: Reuse ID
     static let reuseID = String(describing: MenuItemCollectionViewCell.self)
     
+    // MARK: Outlets
     @IBOutlet weak var foodItemImageView: UIImageView!
     @IBOutlet weak var foodTitleLabel: UILabel!
     @IBOutlet weak var foodTypeLabel: UILabel!
@@ -19,28 +21,45 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    // MARK: Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setupUI()
+    }
     
-        self.backgroundColor = .white
+    // MARK: Setup
+    func setupUI() {
+        backgroundColor = .white
         
         setupImageView()
+        setupLayer()
+        setupFonts()
+        
+        foodTypeLabel.textColor = UIColor.gray
     }
     
     func setupImageView() {
-        foodItemImageView.layer.cornerRadius = 6.0;
+        foodItemImageView.layer.cornerRadius = 16.0
         foodItemImageView.layer.masksToBounds = true
         foodItemImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
-        backgroundColor = .white
-        layer.borderWidth = 0.8
-        layer.borderColor = UIColor.lightGray.cgColor
-        layer.cornerRadius = 6.0
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        layer.shadowRadius = 3.0
-        layer.shadowOpacity = 1.0
+        foodItemImageView.contentMode = .scaleAspectFill
+    }
+    
+    func setupLayer() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        layer.shadowRadius = 5
+        layer.cornerRadius = 16
         layer.masksToBounds = false
     }
     
+    func setupFonts() {
+        foodTitleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        foodTypeLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
+        estimatedTimeLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
+        ratingLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
+        priceLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
+    }
 }

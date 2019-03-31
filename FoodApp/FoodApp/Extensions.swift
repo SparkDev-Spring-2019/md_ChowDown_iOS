@@ -9,77 +9,20 @@
 import Foundation
 import UIKit
 
-//class GenericTableViewCell<view: UIView>: UITableViewCell {
-//
-//    var cellView: UIView? {
-//        didSet {
-//            //
-//        }
-//    }
-//
-//    private func setupViews() {
-//        guard let cellView = cellView else { return }
-//
-//        contentView.addSubview(cellView)
-//        // pin edges to superview
-//    }
-//}
-//
-//extension UITableViewCell { // not sure which class is best yet
-//    func pinEdgesToSuperView() {
-//        contentView.addConstraints([
-//
-//            ])
-//    }
-//}
-
-extension UICollectionView {
+extension UIColor {
+    static let customGray = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
     
-    // Example use: myView.addBorder(toSide: .Left, withColor: UIColor.redColor().CGColor, andThickness: 1.0)
+    static let customOrange = UIColor(red: 241.0 / 255.0, green: 81 / 255.0, blue: 34.0 / 255.0, alpha: 1)
     
-    enum ViewSide {
-        case Left, Right, Top, Bottom
-    }
-    
-    func addBorder(toSide side: ViewSide, withColor color: CGColor, andThickness thickness: CGFloat) {
-        
-        let border = CALayer()
-        border.backgroundColor = color
-        
-        switch side {
-        case .Left: border.frame = CGRect(x: frame.minX, y: frame.minY, width: thickness, height: frame.height)
-        case .Right: border.frame = CGRect(x: frame.maxX, y: frame.minY, width: thickness, height: frame.height)
-        case .Top: border.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: thickness)
-        case .Bottom: border.frame = CGRect(x: frame.minX, y: frame.maxY, width: frame.width, height: thickness)
-        }
-        
-        layer.addSublayer(border)
-    }
+    static let customRed = UIColor(red: 230 / 255.0, green: 0, blue: 0, alpha: 1.0)
 }
 
 extension UIView {
-    func pinToEdges() {
-        if let superView = superview {
-            addConstraints([
-                self.topAnchor.constraint(equalTo: superView.topAnchor),
-                self.leadingAnchor.constraint(equalTo: superView.leadingAnchor),
-                self.trailingAnchor.constraint(equalTo: superView.trailingAnchor),
-                self.bottomAnchor.constraint(equalTo: superView.bottomAnchor)
-                ])
-        }
-    }
-    
-    
-}
-
-extension UIView {
-    func dropShadow(scale: Bool = true) {
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        //layer.shadowOffset =
-        layer.shadowRadius = 1
-        layer.shouldRasterize = true
-        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    func fadeTransition(_ duration:CFTimeInterval) {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.duration = duration
+        layer.add(animation, forKey: CATransitionType.fade.rawValue)
     }
 }

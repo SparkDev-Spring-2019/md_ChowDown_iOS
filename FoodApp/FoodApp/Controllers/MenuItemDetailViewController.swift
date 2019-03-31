@@ -8,9 +8,12 @@
 
 import UIKit
 
+protocol Pages {}
+
 class MenuItemDetailViewController: UIViewController {
     
-    var pages =  [UIViewController]()
+    //MARK: Variables
+    var pages =  [Pages]()
     
     var menuItem =  MenuItem()
     
@@ -24,18 +27,19 @@ class MenuItemDetailViewController: UIViewController {
     
     var selectedViewController = 0
     
+    // MARK: UI Elements
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "pizzapic")
         imageView.setContentHuggingPriority(.defaultLow, for: .vertical)
         imageView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFit // might need to comment out
         return imageView
     }()
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Title"
+        label.text = "Pizza"
         return label
     }()
     
@@ -49,18 +53,6 @@ class MenuItemDetailViewController: UIViewController {
         let segmentedControl = UISegmentedControl(items: ["Order", "Description", "Ratings"])
         segmentedControl.addTarget(self, action: #selector(valueChanged(_:)), for: .valueChanged)
         segmentedControl.selectedSegmentIndex = 0
-        let font = UIFont(name: "Verdana", size: UIFont.systemFontSize)!
-        segmentedControl.setTitleTextAttributes([
-            NSAttributedString.Key.font: font,
-            NSAttributedString.Key.foregroundColor: UIColor.lightGray
-            ], for: .normal)
-        
-        segmentedControl.setTitleTextAttributes([
-            NSAttributedString.Key.font : font,
-            NSAttributedString.Key.foregroundColor: UIColor.darkGray
-            ], for: .selected)
-        
-        segmentedControl.tintColor = .clear
         return segmentedControl
     }()
     
@@ -73,7 +65,8 @@ class MenuItemDetailViewController: UIViewController {
         stackView.spacing = 8
         return stackView
     }()
-
+ 
+    // MARK: Controllers
     private lazy var pageViewController: UIPageViewController = {
         let pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                       navigationOrientation: .horizontal,
@@ -82,15 +75,17 @@ class MenuItemDetailViewController: UIViewController {
         return pageViewController
     }()
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         setPages()
         
-        pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: .forward, animated: true)
+        pageViewController.setViewControllers([pages[selectedSegmentIndex] as! UIViewController], direction: .forward, animated: true)
     }
-  
+    
+    // MARK: Setup
     func setupUI() {
         view.backgroundColor = .white
         
@@ -103,10 +98,10 @@ class MenuItemDetailViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: view.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7),
-            pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            pageViewController.view.topAnchor.constraint(equalTo: stackView.bottomAnchor),
-            pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.55),
+            pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -2),
+            pageViewController.view.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8),
+            pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 2),
             pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
@@ -117,11 +112,12 @@ class MenuItemDetailViewController: UIViewController {
         pages.append(RatingsViewController())
     }
     
+    // MARK: Actions
     @objc func valueChanged(_ sender: UISegmentedControl) {
         if pagingForward {
-            pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: UIPageViewController.NavigationDirection.forward, animated: true)
+            pageViewController.setViewControllers([pages[selectedSegmentIndex] as! UIViewController], direction: UIPageViewController.NavigationDirection.forward, animated: true)
         } else {
-            pageViewController.setViewControllers([pages[selectedSegmentIndex]], direction: UIPageViewController.NavigationDirection.reverse, animated: true)
+            pageViewController.setViewControllers([pages[selectedSegmentIndex] as! UIViewController], direction: UIPageViewController.NavigationDirection.reverse, animated: true)
         }
         selectedViewController = selectedSegmentIndex
     }
