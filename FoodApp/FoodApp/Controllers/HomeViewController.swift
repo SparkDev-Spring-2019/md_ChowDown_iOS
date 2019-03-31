@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
+import UserNotifications
 
 class HomeViewController: UIViewController {
+    
+    var menuCategories = [MenuCategory]()
+    
     var dataSource = [MenuItem]()
-   
-   
     
     lazy var categoriesCollectionView: UICollectionView = { // move implementation
         var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -113,7 +116,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // let item = dataSource.item(at: indexPath.row)
         let detailViewController = MenuItemDetailViewController()
         navigationController?.pushViewController(detailViewController, animated: true)
-        
+
         // else if categories, reload collectionview
     }
 }
