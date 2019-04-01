@@ -88,20 +88,20 @@ class FirebaseAPI {
         }
     }
     
-//    public func getMenuItems(menuCategory: MenuCategory, completion: @escaping ([MenuItem], Error?) -> Void) {
-//
-//        let menuItemsRef = firestore.collection("Foods")
-//
-////            menuItemsRef.whereField("category", arrayContains: menuCategory.categoryId)
-//            menuItemsRef.getDocuments() { (querySnapshot, err) in
-//
-//                if let err = err {
-//                    print("Error getting documents: \(err)")
-//                } else {
-//                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
-//                    }
-//                }
+    public func getMenuItems(menuCategory: MenuCategory, completion: @escaping ([MenuItem], Error?) -> Void) {
+
+        let menuItemsRef = firestore.collection("Foods")
+
+//            menuItemsRef.whereField("category", arrayContains: menuCategory.categoryId)
+            menuItemsRef.getDocuments() { (querySnapshot, err) in
+
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                    }
+                }
     
 //                if err != nil {
 //
@@ -134,7 +134,8 @@ class FirebaseAPI {
 //
 //                }
 //            }
-//
-//        }
+
+        }
+    }
     
 }

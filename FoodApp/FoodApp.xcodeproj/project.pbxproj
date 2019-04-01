@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		79388B622251533500B6B8A2 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79388B612251533500B6B8A2 /* UserProfile.swift */; };
+		796D57DE225278CD00D34142 /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D57DC225278CD00D34142 /* ShoppingCartTableViewCell.swift */; };
+		796D57DF225278CD00D34142 /* ShoppingCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796D57DD225278CD00D34142 /* ShoppingCartTableViewCell.xib */; };
 		79735C6F224FE0D600575723 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79735C6E224FE0D600575723 /* FirebaseAPI.swift */; };
 		79735C71224FE19F00575723 /* MenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79735C70224FE19F00575723 /* MenuCategory.swift */; };
 		79AA0B9E22440C1400B18A88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79AA0B9D22440C1400B18A88 /* GoogleService-Info.plist */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		79388B612251533500B6B8A2 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		796D57DC225278CD00D34142 /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartTableViewCell.swift; sourceTree = "<group>"; };
+		796D57DD225278CD00D34142 /* ShoppingCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartTableViewCell.xib; sourceTree = "<group>"; };
 		79735C6E224FE0D600575723 /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		79735C70224FE19F00575723 /* MenuCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategory.swift; sourceTree = "<group>"; };
 		79AA0B9D22440C1400B18A88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				BF0A39042246682700651A6E /* CategoriesCollectionViewCell.swift */,
 				BF1D4F2F221F38DD000B95D5 /* MenuItemCollectionViewCell.swift */,
 				BF1D4F30221F38DD000B95D5 /* MenuItemCollectionViewCell.xib */,
+				796D57DC225278CD00D34142 /* ShoppingCartTableViewCell.swift */,
+				796D57DD225278CD00D34142 /* ShoppingCartTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 				79AA0B9E22440C1400B18A88 /* GoogleService-Info.plist in Resources */,
 				79EBBE2C221340D8006C4341 /* Main.storyboard in Resources */,
 				BF1D4F32221F38DD000B95D5 /* MenuItemCollectionViewCell.xib in Resources */,
+				796D57DF225278CD00D34142 /* ShoppingCartTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +326,7 @@
 				79EBBE27221340D8006C4341 /* AppDelegate.swift in Sources */,
 				BF509C52223C78DA0064AF82 /* MenuItemDetailViewController.swift in Sources */,
 				BF1D4F2B221F20A9000B95D5 /* TabBarController.swift in Sources */,
+				796D57DE225278CD00D34142 /* ShoppingCartTableViewCell.swift in Sources */,
 				79735C6F224FE0D600575723 /* FirebaseAPI.swift in Sources */,
 				79388B622251533500B6B8A2 /* UserProfile.swift in Sources */,
 				BF202AFD222866B90040F010 /* FoodItemCollectionView.swift in Sources */,
