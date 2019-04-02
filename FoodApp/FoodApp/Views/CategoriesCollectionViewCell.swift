@@ -42,4 +42,10 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
             categoryTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
     }
+    
+    var category: MenuCategory? {
+        didSet {
+            self.categoryTitleLabel.text = category?.categoryId
+        }
+    }
 }

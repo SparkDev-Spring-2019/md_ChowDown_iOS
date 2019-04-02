@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     
     var dataSource = [MenuItem]()
     
+    let firestore = FirebaseAPI()
+    
     lazy var categoriesCollectionView: UICollectionView = { // move implementation
         var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -68,12 +70,16 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//
-//        FirebaseAPI().getMenuItems(menuCategory: category) { (menuItem, error) in
-//
-//        }
-        
         setupUI()
+        
+        loadCategories()
+    }
+    
+    private func loadCategories() {
+        firestore.getMenuCategories(completion: ({(menuItems, error) in
+            self.menuCategories = menuItems
+            self.categoriesCollectionView.reloadData()
+        }))
     }
     
     func setupUI() {
@@ -102,7 +108,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        
+        if collectionView == self.categoriesCollectionView {
+            return menuCategories.count
+        } else {
+            return dataSource.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -112,7 +123,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return cell
             } else { // categoriesCollectionView
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.reuseID, for: indexPath) as! CategoriesCollectionViewCell
-//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
+                
+                let category = menuCategories[indexPath.row]
+                cell.category = category
+
                 return cell
         }
     }
