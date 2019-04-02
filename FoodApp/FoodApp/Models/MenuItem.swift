@@ -12,18 +12,18 @@ struct MenuItem: Codable {
     
     let id: String
     var category: [String]?
-    var name: String
-    var description: String
-    var foodImageUrl: String
-    var rating: String
-    var price: String
-    var completionTime: String
-    var isVegan: Bool
-    var reviewsRefId: String
+    var name: String?
+    var description: String?
+    var foodImageUrl: String?
+    var rating: String?
+    var price: String?
+    var completionTime: String?
+    var isVegan: Bool?
+    var reviewsRefId: String?
     
     init(id: String, category: [String], name: String, description: String, foodImageUrl: String, rating: String, price: String, completionTime: String, isVegan: Bool, reviewsRefId: String) {
         self.id = id
-        self.category = category
+        self.category = nil
         self.name = name
         self.description = description
         self.foodImageUrl = foodImageUrl

@@ -54,6 +54,7 @@ class FirebaseAPI {
         
         let menuCategoriesRef = firestore.collection("Categories")
         
+        
         menuCategoriesRef.getDocuments() { (querySnapshot, err) in
             
             if err != nil {
@@ -92,50 +93,49 @@ class FirebaseAPI {
 
         let menuItemsRef = firestore.collection("Foods")
 
-//            menuItemsRef.whereField("category", arrayContains: menuCategory.categoryId)
+            menuItemsRef.whereField("category", arrayContains: menuCategory.categoryId)
             menuItemsRef.getDocuments() { (querySnapshot, err) in
 
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                    }
-                }
-    
-//                if err != nil {
-//
+//                if let err = err {
 //                    print("Error getting documents: \(err)")
-//                    completion([], err)
-//
 //                } else {
-//
-//                    do {
-//
-//                        var menuItems = [MenuItem]()
-//
-//                        for document in querySnapshot!.documents {
-//
-//                            let dict = document.data()
-//                            let data = try JSONSerialization.data(withJSONObject: dict, options: [])
-//                            let menuItem = try JSONDecoder().decode(MenuItem.self, from: data)
-//                            menuItems.append(menuItem)
-//                            print(menuItem)
-//
-//                        }
-//
-//                        completion(menuItems, nil)
-//
-//                    } catch {
-//
-//                        print(err)
-//
+//                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
 //                    }
-//
 //                }
-//            }
+    
+                if err == nil {
+
+                    print("Error getting documents: \(err)")
+                    completion([], err)
+
+                } else {
+
+                    do {
+
+                        var menuItems = [MenuItem]()
+
+                        for document in querySnapshot!.documents {
+
+                            var dict = document.data()
+                            let data = try JSONSerialization.data(withJSONObject: dict, options: [])
+                            let menuItem = try JSONDecoder().decode(MenuItem.self, from: data)
+                            menuItems.append(menuItem)
+                            print(dict)
+
+                        }
+
+                        completion(menuItems, nil)
+
+                    } catch {
+
+                        print(err)
+
+                    }
+
+                }
+            }
 
         }
     }
     
-}

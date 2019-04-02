@@ -45,7 +45,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     
     var category: MenuCategory? {
         didSet {
-            self.categoryTitleLabel.text = category?.categoryId
+           categoryTitleLabel.text = category?.categoryId
         }
     }
 }

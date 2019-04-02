@@ -73,6 +73,8 @@ class HomeViewController: UIViewController {
         setupUI()
         
         loadCategories()
+        
+        loadMenuItems()
     }
     
     private func loadCategories() {
@@ -80,6 +82,19 @@ class HomeViewController: UIViewController {
             self.menuCategories = menuItems
             self.categoriesCollectionView.reloadData()
         }))
+    }
+    
+    private func loadMenuItems() {
+        firestore.getMenuItems(menuCategory: MenuCategory(categoryId: "Lunch")) { (menuItems, error) in
+//            self.dataSource = menuItems
+//            self.menuItemsCollectionView.reloadData()
+            
+            if error == nil {
+                print(error)
+            } else {
+                
+            }
+        }
     }
     
     func setupUI() {
@@ -120,6 +135,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
             if collectionView == self.menuItemsCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
+                
+//                let menuItem = dataSource[indexPath.row]
+//                cell.item = menuItem
+                
                 return cell
             } else { // categoriesCollectionView
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.reuseID, for: indexPath) as! CategoriesCollectionViewCell
