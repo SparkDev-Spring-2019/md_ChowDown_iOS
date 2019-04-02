@@ -68,7 +68,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var category = MenuCategory(categoryId: "Lunch")
 //
 //        FirebaseAPI().getMenuItems(menuCategory: category) { (menuItem, error) in
 //

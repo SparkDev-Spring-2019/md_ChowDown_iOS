@@ -9,10 +9,14 @@
 import UIKit
 
 class ShoppingCartTableViewCell: UITableViewCell {
+    
+    static let reuseID = String(describing: ShoppingCartTableViewCell.self)
 
+    @IBOutlet weak var menuItemTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

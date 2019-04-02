@@ -10,11 +10,10 @@ import UIKit
 
 class ShoppingCartViewController: UIViewController {
     
-    let cellId = "cell"
-    
     lazy var shoppingCart: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.allowsSelection = false
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -45,7 +44,7 @@ class ShoppingCartViewController: UIViewController {
         
 //        view.backgroundColor = .white
         
-        shoppingCart.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        shoppingCart.register(UINib(nibName: ShoppingCartTableViewCell.reuseID, bundle: nil), forCellReuseIdentifier: ShoppingCartTableViewCell.reuseID)
         
         view.addSubview(shoppingCart)
         view.addSubview(priceSummary)
@@ -72,7 +71,9 @@ extension ShoppingCartViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingCartTableViewCell.reuseID, for: indexPath) as! ShoppingCartTableViewCell
+        
+        cell.heightAnchor.constraint(equalToConstant: 50)
         
         return cell
     }
