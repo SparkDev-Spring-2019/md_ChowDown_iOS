@@ -11,21 +11,21 @@ import UIKit
 
 class CategoriesCollectionViewCell: UICollectionViewCell {
     
+    // MARK: Reuse ID
     static let reuseID = String(describing: CategoriesCollectionViewCell.self)
 
-    lazy var categoryTitleLabel: UILabel = {
+    public lazy var categoryTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .callout)
-        label.adjustsFontForContentSizeCategory = true
         label.text = "Y"
+        contentView.addSubview(label)
         return label
     }()
     
+    // MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(categoryTitleLabel)
         setupUI()
     }
 
@@ -33,14 +33,20 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Setup
     func setupUI() {
         let margins = contentView.layoutMarginsGuide
         contentView.addConstraints([
-            categoryTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            categoryTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            categoryTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            categoryTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            categoryTitleLabel.topAnchor.constraint(equalTo: margins.topAnchor),
+            categoryTitleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: margins.leadingAnchor),
+            categoryTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: margins.trailingAnchor),
+            categoryTitleLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
             ])
+       
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        layer.shadowRadius = 3.0
+        layer.shadowOpacity = 0.3
     }
     
     var category: MenuCategory? {
@@ -49,3 +55,4 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         }
     }
 }
+

@@ -16,8 +16,6 @@ class HomeViewController: UIViewController {
     
     var dataSource = [MenuItem]()
     
-    let firestore = FirebaseAPI()
-    
     lazy var categoriesCollectionView: UICollectionView = { // move implementation
         var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -71,26 +69,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        
-        loadCategories()
-        
-        loadMenuItems()
-    }
-    
-    private func loadCategories() {
-        firestore.getMenuCategories(completion: ({(menuItems, error) in
-            self.menuCategories = menuItems
-            self.categoriesCollectionView.reloadData()
-        }))
-    }
-    
-    private func loadMenuItems() {
-        firestore.getMenuItems(menuCategory: MenuCategory(categoryId: "Dessert")) { (menuItems, error) in
-//            self.dataSource = menuItems
-//            self.menuItemsCollectionView.reloadData()
-            
-            print(menuItems)
-        }
     }
     
     func setupUI() {
@@ -119,29 +97,17 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if collectionView == self.categoriesCollectionView {
-            return menuCategories.count
-        } else {
-            return dataSource.count
-        }
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
             if collectionView == self.menuItemsCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
-                
-//                let menuItem = dataSource[indexPath.row]
-//                cell.item = menuItem
-                
                 return cell
             } else { // categoriesCollectionView
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.reuseID, for: indexPath) as! CategoriesCollectionViewCell
-                
-                let category = menuCategories[indexPath.row]
-                cell.category = category
-
+//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
                 return cell
         }
     }

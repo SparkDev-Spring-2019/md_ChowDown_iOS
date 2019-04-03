@@ -1,0 +1,88 @@
+//
+//  ShoppingCartViewController.swift
+//  FoodApp
+//
+//  Created by gnoa001 on 3/15/19.
+//  Copyright © 2019 SparkDev. All rights reserved.
+//
+
+import UIKit
+
+class ShoppingCartViewController: UIViewController {
+    
+    lazy var shoppingCart: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.allowsSelection = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        return tableView
+    }()
+    
+    lazy var priceSummary: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .orange
+        
+        return view
+    }()
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        title = "Shopping Cart"
+        navigationItem.title = "Shopping Cart"
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        view.backgroundColor = .white
+        
+        shoppingCart.register(UINib(nibName: ShoppingCartTableViewCell.reuseID, bundle: nil), forCellReuseIdentifier: ShoppingCartTableViewCell.reuseID)
+        
+        view.addSubview(shoppingCart)
+        view.addSubview(priceSummary)
+        
+        view.addConstraints([
+            shoppingCart.topAnchor.constraint(equalTo: view.topAnchor),
+            shoppingCart.bottomAnchor.constraint(equalTo: priceSummary.topAnchor),
+            shoppingCart.leftAnchor.constraint(equalTo: view.leftAnchor),
+            shoppingCart.rightAnchor.constraint(equalTo: view.rightAnchor),
+            priceSummary.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+            priceSummary.topAnchor.constraint(equalTo: shoppingCart.bottomAnchor),
+            priceSummary.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            priceSummary.leftAnchor.constraint(equalTo: view.leftAnchor),
+            priceSummary.rightAnchor.constraint(equalTo: view.rightAnchor),])
+        
+    }
+<<<<<<< HEAD:FoodApp/FoodApp/Controllers/Tabs/ShoppingCartViewController.swift
+=======
+
+}
+
+extension ShoppingCartViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingCartTableViewCell.reuseID, for: indexPath) as! ShoppingCartTableViewCell
+        
+        cell.heightAnchor.constraint(equalToConstant: 50)
+        
+        return cell
+    }
+    
+}
+
+extension ShoppingCartViewController: UITableViewDelegate {
+    
+>>>>>>> e52f18c2553988c046c489e0ecf20b0cf96fe655:FoodApp/FoodApp/Controllers/ShoppingCartViewController.swift
+}

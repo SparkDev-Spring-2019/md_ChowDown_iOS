@@ -3932,6 +3932,13 @@
 			remoteGlobalIDString = 4A4D39E924F67E462CDD1AF22766DC86;
 			remoteInfo = FirebaseAnalytics;
 		};
+		FAE086BADADFDFDF801EDC2A309749B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFF87187B46551C36797F2B899C54212;
+			remoteInfo = IQKeyboardManagerSwift;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -12663,6 +12670,351 @@
 			name = "abseil-cpp";
 			sourceTree = "<group>";
 		};
+		B950BE3C0FD8DB0E7EC417827EDA3C7D /* encode */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = encode;
+			sourceTree = "<group>";
+		};
+		B9A2964DF9FF6F619107A00A554BC8D4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8E8F35A0F33093EE0A5F59A38022C012 /* IQKeyboardManagerSwift.modulemap */,
+				F2C1CCA1089ED32FDB5596EEF49F6DD9 /* IQKeyboardManagerSwift.xcconfig */,
+				72919D3FE744D73BF2CBC4E485639DFB /* IQKeyboardManagerSwift-dummy.m */,
+				BDEF2CE8CA4ADD97D1F98A56E7E6735E /* IQKeyboardManagerSwift-Info.plist */,
+				A65DE8DD23ECCEA88F5D3B823D9597B6 /* IQKeyboardManagerSwift-prefix.pch */,
+				0483354E454DFD8F424AFF194D9A4F8E /* IQKeyboardManagerSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IQKeyboardManagerSwift";
+			sourceTree = "<group>";
+		};
+		BE74C7A12EC5DBD05AA9CB923872F911 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFD726C731C02691F9B16C64F62E07C6 /* FirebaseInstanceID.modulemap */,
+				4D5A00E1825E7F2C7D102757FF908EE0 /* FirebaseInstanceID.xcconfig */,
+				06C28D397D54D67F0EB49CC4BDF97FC7 /* FirebaseInstanceID-dummy.m */,
+				2B5D5B33F45278DC48BF8284E1EC3389 /* FirebaseInstanceID-Info.plist */,
+				97DA82E1C8A7937DE3A78862C5F64DAD /* FirebaseInstanceID-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FirebaseInstanceID";
+			sourceTree = "<group>";
+		};
+		C8E327211528FD6EA16F1A79A7785A6E /* decode */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = decode;
+			sourceTree = "<group>";
+		};
+		CA74DF7583C4B21AD213B17323B8B1A9 /* FirebaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				2839FC162EA0A47CBFBF41176399DE3D /* FirebaseStorage.h */,
+				142D8BAB74176D3264F161E043288840 /* FIRStorage.h */,
+				9C1BC07A36F10FCD81E75C23689FD13B /* FIRStorage.m */,
+				D3FCDABE02DD992552AB5E4DAB835686 /* FIRStorage_Private.h */,
+				892A73C1DE60F1EBF74A15E5F269A282 /* FIRStorageComponent.h */,
+				3DB331FA4E962A0C8DB9FD5C188B5E5C /* FIRStorageComponent.m */,
+				55809B6C0E024540341FEEDBAA038BF2 /* FIRStorageConstants.h */,
+				7F3B1AF90A9A510351D35EC0721AC126 /* FIRStorageConstants.m */,
+				2CB923BE54DE32ADEC1C6FF4162A9807 /* FIRStorageConstants_Private.h */,
+				78D4D224645409CF7B3ED0A882343BBF /* FIRStorageDeleteTask.h */,
+				F8B7137FCDF6F9E1A186B07A4E7AE919 /* FIRStorageDeleteTask.m */,
+				D57EF38AFCB1A45DC1DB769223D7937B /* FIRStorageDownloadTask.h */,
+				8403C0FCD81372D2C64EDD69407E321A /* FIRStorageDownloadTask.m */,
+				5BFE82A31BC997DC0490C1B3855C8F2C /* FIRStorageDownloadTask_Private.h */,
+				18B47B8CEF6BADD4682C255A17146F7A /* FIRStorageErrors.h */,
+				5047AC9DBC101A463A13C78F0174D73D /* FIRStorageErrors.m */,
+				21E5E035F7596A4818BF2337342BA2BE /* FIRStorageGetDownloadURLTask.h */,
+				B33EDC426A1A925001C6FEB8CD9F7494 /* FIRStorageGetDownloadURLTask.m */,
+				00AD1CD4B1018456F374FAC831EFCDD6 /* FIRStorageGetDownloadURLTask_Private.h */,
+				59B6037A0131315B9D74BA2F5F0E9E53 /* FIRStorageGetMetadataTask.h */,
+				5FCB9D8ED877634BB9AE95762152EABF /* FIRStorageGetMetadataTask.m */,
+				B6F2834553BB9BF787FF35E2F05F09B3 /* FIRStorageMetadata.h */,
+				32751CB83490A73DF3D1EBDCC6CA4A63 /* FIRStorageMetadata.m */,
+				374EBA59FFFEF55E38E0C8FA2B03D1E1 /* FIRStorageMetadata_Private.h */,
+				1CF1522D55FA3316BDAF12C7CDBDBD28 /* FIRStorageObservableTask.h */,
+				3AFB1F29923516C437B3F0D78BDD8F52 /* FIRStorageObservableTask.m */,
+				B7CE21914028710EF09F878EEE90E7EF /* FIRStorageObservableTask_Private.h */,
+				8C527E073394100C826D1B01EA9E8162 /* FIRStoragePath.h */,
+				F313C58F4104E31C87DC22F5C9E1F1D4 /* FIRStoragePath.m */,
+				1598E552B7307E9ED8D6820F9D301EAE /* FIRStorageReference.h */,
+				4981BAA6B92BDB16B2C9437DE6E5E4F8 /* FIRStorageReference.m */,
+				3BE3CEA5FDFA416DCB5559D16C20980B /* FIRStorageReference_Private.h */,
+				AF1F72A70ADF5D64ECC7F4EA995A0187 /* FIRStorageTask.h */,
+				17B195A1AE4F215AC9F086A2D5BD04B4 /* FIRStorageTask.m */,
+				0FE3B3D485BFF82FC44FB8B597E000A3 /* FIRStorageTask_Private.h */,
+				9324F815BF2D74D30135BC9DC0D82FE6 /* FIRStorageTaskSnapshot.h */,
+				BF62E17B8F8C30A0BEB5132335C862F9 /* FIRStorageTaskSnapshot.m */,
+				9D7667F906E1254B3B5E31B2509482B7 /* FIRStorageTaskSnapshot_Private.h */,
+				ACC3CD4ABE9C03C98ABBE2E5FD5D0757 /* FIRStorageTokenAuthorizer.h */,
+				B47A0938A746EAB5E1904BDC022A775F /* FIRStorageTokenAuthorizer.m */,
+				D5040717B8006BF61D43D7F6B48E12C0 /* FIRStorageUpdateMetadataTask.h */,
+				1B462561E2B5FD154AAEF2B9B0A696CD /* FIRStorageUpdateMetadataTask.m */,
+				7DA55E3DF780DB0132DFB8FEF7670747 /* FIRStorageUploadTask.h */,
+				794B7E809C5AF0975CDA2D91CFF0DC40 /* FIRStorageUploadTask.m */,
+				A38D7B57937E25FBA84FC4DB7F612980 /* FIRStorageUploadTask_Private.h */,
+				9E2808A79061EECC10CD68C5AC371C8F /* FIRStorageUtils.h */,
+				25C6E4E729ED916184BADEAA778B0026 /* FIRStorageUtils.m */,
+				F8861894079B10CD056CE4C4F5B75D5E /* Support Files */,
+			);
+			name = FirebaseStorage;
+			path = FirebaseStorage;
+			sourceTree = "<group>";
+		};
+		CE94163FD98E318F0BC1054D220CE8EF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				98ADC475E84235BC84ADBA05C35685D5 /* CoreGraphics.framework */,
+				2280EB9A6A7DFA5F72F973764FCB5331 /* Foundation.framework */,
+				A4FAD54AF24FB83CF12F293704D03C36 /* QuartzCore.framework */,
+				8CA5CFBCBBE50C70263534AE6998D298 /* Security.framework */,
+				F7FD7EB4AD43C08DAC7A41393A0AFC3E /* SystemConfiguration.framework */,
+				5B40963D8B06B4003C2DD3EE05717E33 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D68CA58901FBF589D75F5E40F1EAF5BA /* Frameworks */,
+				3B5C5C1222F8D3290FB77EEC1E9B0359 /* Pods */,
+				62C0CAA675363B5F09D022D666888756 /* Products */,
+				FF148B7C87A844C6C60CCF282AFDAFE0 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		CF35DAB135B77161EBE7E253DA675928 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				4312FC140BBD80D7EC3B1E55365BF563 /* GULUserDefaults.h */,
+				A01181B65BC03574C55316D990429D2B /* GULUserDefaults.m */,
+			);
+			name = UserDefaults;
+			sourceTree = "<group>";
+		};
+		D1736F9CD7C1A4AE04F30B7C46D1E416 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5D73E0DF05F99859E29FBDF710F1B4B /* GTMSessionFetcher.modulemap */,
+				D4407E837EE9BA418818B47899C1D8E7 /* GTMSessionFetcher.xcconfig */,
+				709B62964648BEB33EA49DE11D3D09CF /* GTMSessionFetcher-dummy.m */,
+				3D9B3CA4A2D4CC9C8CA34C4489F4619F /* GTMSessionFetcher-Info.plist */,
+				5F9BA0E3E6BB198ABA28CC9D9A5D4F86 /* GTMSessionFetcher-prefix.pch */,
+				A08E99F37C9690951356608241428D81 /* GTMSessionFetcher-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GTMSessionFetcher";
+			sourceTree = "<group>";
+		};
+		D68CA58901FBF589D75F5E40F1EAF5BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE94163FD98E318F0BC1054D220CE8EF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D97A19E39861C4DCC67243A5F159C37C /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				EC5B645CC30E106B6A4F29CFE31D0633 /* AppDelegateSwizzler */,
+				722F725E2807ADAB2BE9CC0CED8E8C9E /* Environment */,
+				B5EEEE74E1A9ED397D95C2DDA6FE3BFF /* Logger */,
+				2498D1E6FB0C52DD75010836F29CCCB6 /* MethodSwizzler */,
+				A5056A7E8A1F33E000FDAD6CE8132858 /* Network */,
+				62A2B20A2E959F00264546D4C96D5B00 /* NSData+zlib */,
+				7CE60591A09B73E614CCB7A32C049040 /* Reachability */,
+				05B7B0EAA982D34EF29E6257D28C0869 /* Support Files */,
+				CF35DAB135B77161EBE7E253DA675928 /* UserDefaults */,
+			);
+			name = GoogleUtilities;
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		DE4C3D8319611122852F2FFDFBB222A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6A8B1B2ECE0D7274E58D0794ABCB042 /* IQKeyboardManager.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E29D855D53CC679C7CB1F5DF067C98F4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				35C4FE497200525A4DA6D003040676E1 /* leveldb-library.modulemap */,
+				8205A93740A0400CD4761410BEA3E29E /* leveldb-library.xcconfig */,
+				35F84283B450204418E9BACAEF4AE056 /* leveldb-library-dummy.m */,
+				A5608247631FD07A69614088751E951A /* leveldb-library-Info.plist */,
+				A5B8B79504BFED0A612E40C3C8948A90 /* leveldb-library-prefix.pch */,
+				E6D5ACD151CFEAF17C5ACAFE048F01DF /* leveldb-library-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/leveldb-library";
+			sourceTree = "<group>";
+		};
+		E7E8FE04F2717945D156EFFF81440314 /* GoogleAppMeasurement */ = {
+			isa = PBXGroup;
+			children = (
+				7E0CC4839DF7B8744143E97498BDF97D /* Frameworks */,
+				7D9CC76CDB121B023A4C300463CA6690 /* Support Files */,
+			);
+			name = GoogleAppMeasurement;
+			path = GoogleAppMeasurement;
+			sourceTree = "<group>";
+		};
+		EAF8B6BDA9BC60A96ED8BF5445CE152F /* IQKeyboardManagerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A8A68045783992B9D13A7B0EE8C4941D /* IQBarButtonItem.swift */,
+				471E59A6C01312C6BD0C63AEE62AEC31 /* IQInvocation.swift */,
+				43D517798B32A7D72D6E101888AE00BB /* IQKeyboardManager.swift */,
+				786B6F6C4CEB7D626291A0FF9C1374F3 /* IQKeyboardManagerConstants.swift */,
+				1637914D34CBA36FE1657EF748BD14E5 /* IQKeyboardManagerConstantsInternal.swift */,
+				938663BB94CF6FE7FDFC220D345D2B84 /* IQKeyboardReturnKeyHandler.swift */,
+				8DF267D7963BC873976B6BF2D5DF0B45 /* IQNSArray+Sort.swift */,
+				0D0FB3FA0861D661947092EDA0B3F68C /* IQPreviousNextView.swift */,
+				6B3E62A97581101DCF5FB7CBA61206B0 /* IQTextView.swift */,
+				091F989264028F15A2E38F622A5DD05E /* IQTitleBarButtonItem.swift */,
+				F7D40F08D87BA4D1D76E4B18EFC1F167 /* IQToolbar.swift */,
+				F0F9288FDF699C66E00F7621A9F1484F /* IQUIScrollView+Additions.swift */,
+				8F24813F060DD8199A17FA59CD50B9E4 /* IQUITextFieldView+Additions.swift */,
+				E6080F0B9079C846B0F28982453E50CE /* IQUIView+Hierarchy.swift */,
+				33AA60A06DD7330A8B77921400C8EA04 /* IQUIView+IQKeyboardToolbar.swift */,
+				B6A09D05724B9E4317F0A1465EDAB18E /* IQUIViewController+Additions.swift */,
+				DE4C3D8319611122852F2FFDFBB222A9 /* Resources */,
+				B9A2964DF9FF6F619107A00A554BC8D4 /* Support Files */,
+			);
+			name = IQKeyboardManagerSwift;
+			path = IQKeyboardManagerSwift;
+			sourceTree = "<group>";
+		};
+		EC5B645CC30E106B6A4F29CFE31D0633 /* AppDelegateSwizzler */ = {
+			isa = PBXGroup;
+			children = (
+				176AB47C3BC85BBD1E34D6D442EE7535 /* GULAppDelegateSwizzler.h */,
+				CA4778006FFC3B8EDA8056A73E0DA0AD /* GULAppDelegateSwizzler.m */,
+				C862A133C850FCC2A5AC443C40AACDC9 /* GULAppDelegateSwizzler_Private.h */,
+				823B27EB6C90A8DF436CF5BFAB08D6FC /* GULLoggerCodes.h */,
+			);
+			name = AppDelegateSwizzler;
+			sourceTree = "<group>";
+		};
+		F1B9DF58B250628F89DC24FF897BE93E /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				C56AFBFB2CD709E1E9A7FB377080D7AC /* FirebaseInstanceID.h */,
+				1DDA7A7A84EFD62B9CFDE223A1373E5D /* FIRIMessageCode.h */,
+				B36167953A8F20E22C644F8E6FDCFE98 /* FIRInstanceID.h */,
+				465D39E042CCA7696BF7C7C669FE3923 /* FIRInstanceID.m */,
+				268C0766CD95F26546BE64D1439A0AC4 /* FIRInstanceID+Private.h */,
+				3B5557E5C870ACF41DBE53EA8EB0227D /* FIRInstanceID+Private.m */,
+				C1494BD04285E60B10768944E32FBA7D /* FIRInstanceID+Testing.h */,
+				75F7F147F931715DA097172FF2AAB6DE /* FIRInstanceIDAPNSInfo.h */,
+				3F3AC56D0FBE4AEEBAD138303F62A2B4 /* FIRInstanceIDAPNSInfo.m */,
+				4DF6CDFBD2BB60EE93A1B7A9A1822070 /* FIRInstanceIDAuthKeyChain.h */,
+				F56D47C5FC2D489D6B455DF3F1743D3D /* FIRInstanceIDAuthKeyChain.m */,
+				8FB25F333449D3F5C9EFE8B1F27D97C1 /* FIRInstanceIDAuthService.h */,
+				F74B5E05BBD455C1A494EA7D381CD556 /* FIRInstanceIDAuthService.m */,
+				AD36EBDEB620D0B834B1FF1741D2A211 /* FIRInstanceIDBackupExcludedPlist.h */,
+				F63D4FB0A83317B4538A3558BBAEBBAE /* FIRInstanceIDBackupExcludedPlist.m */,
+				F59FC4CDC515A7A135A5453A3318AFC0 /* FIRInstanceIDCheckinPreferences.h */,
+				91DDB68E7D3FBB14E5E6DDDF197BD072 /* FIRInstanceIDCheckinPreferences.m */,
+				43F044C323CCBA3DE722E72D00D40557 /* FIRInstanceIDCheckinPreferences+Internal.h */,
+				54B5CF3EFFB7F1331CE609B2514E7293 /* FIRInstanceIDCheckinPreferences+Internal.m */,
+				FC16310A0B93B1946DE1A5AB7F1D06B6 /* FIRInstanceIDCheckinPreferences_Private.h */,
+				BE7F9DC056277D8897B8A38FFCCC84B3 /* FIRInstanceIDCheckinService.h */,
+				B2298071D9418C7806D1E0DC98CADC31 /* FIRInstanceIDCheckinService.m */,
+				80A21FCE99E4AC7AD1FE06C89F0A325F /* FIRInstanceIDCheckinStore.h */,
+				EF945AC2C1675239C11C0A86774C17D8 /* FIRInstanceIDCheckinStore.m */,
+				CA7809CF80F7222E1A17CF65509B3365 /* FIRInstanceIDConstants.h */,
+				80EB1E4270653CFEC9AEBEDDFA2391DF /* FIRInstanceIDConstants.m */,
+				745B383D181FBC0B472D2B90CF6B55BE /* FIRInstanceIDDefines.h */,
+				9B1B9D48BDCE8D0A06AB7491CAD8B1B8 /* FIRInstanceIDKeychain.h */,
+				AE25DB2DFD74BD49CD57DA7C895F93E4 /* FIRInstanceIDKeychain.m */,
+				496BC0A261A8D8F223E3BEA98308B095 /* FIRInstanceIDKeyPair.h */,
+				72C01B922DCF2ED986DF1FD8B7B572B5 /* FIRInstanceIDKeyPair.m */,
+				8B53E726C17D99EA31B5A21E28AD140E /* FIRInstanceIDKeyPairStore.h */,
+				1E25CD3D87E41B8CBB5FC635F8DC6284 /* FIRInstanceIDKeyPairStore.m */,
+				39BBD0983A1DBD4FB00B5F9144069297 /* FIRInstanceIDKeyPairUtilities.h */,
+				27DD21B21DA8F00AD11441EC732B17EB /* FIRInstanceIDKeyPairUtilities.m */,
+				9981BD1803C2C9DD386C23B07E43BC3A /* FIRInstanceIDLogger.h */,
+				44CA81B70969DA8F10AC134D5BE2A7E2 /* FIRInstanceIDLogger.m */,
+				41E6BC65E9A612FAA83EAA8D81B6EFC9 /* FIRInstanceIDStore.h */,
+				9767B5B8D7BE7971EF665A40B2BBFCD1 /* FIRInstanceIDStore.m */,
+				2D7906648734D1513811314CA83E4AFB /* FIRInstanceIDStringEncoding.h */,
+				8CE43957BD7652CA8005140D23C6C8B7 /* FIRInstanceIDStringEncoding.m */,
+				834E58E243B949D40238A851996FE070 /* FIRInstanceIDTokenDeleteOperation.h */,
+				EF23EC72B19FD1C9F36192D8BCF91B8C /* FIRInstanceIDTokenDeleteOperation.m */,
+				7638732A429BFFC4A6E64402B25A8276 /* FIRInstanceIDTokenFetchOperation.h */,
+				935AD241C3CF4EB6D800AD2229F77247 /* FIRInstanceIDTokenFetchOperation.m */,
+				9034BB2B6F23DDCA14C9C86712E63D80 /* FIRInstanceIDTokenInfo.h */,
+				E0EB817F97401681AB4723C0006D5FF8 /* FIRInstanceIDTokenInfo.m */,
+				1F8DECF36944D1A7DA5C57BABB3544D0 /* FIRInstanceIDTokenManager.h */,
+				D258D14BC79B5BE81F018225D1617EEB /* FIRInstanceIDTokenManager.m */,
+				5A8478CB94C0CBD8D1F623F1D75E313C /* FIRInstanceIDTokenOperation.h */,
+				2273428CFACABD45372FCDD26B3E42BF /* FIRInstanceIDTokenOperation.m */,
+				4ADEEE081084D1060A001A6345AA03B3 /* FIRInstanceIDTokenOperation+Private.h */,
+				6113477F284AD5B9CA83A621BDE057B5 /* FIRInstanceIDTokenStore.h */,
+				D1D3F503A583A37050B21FCFF0ED4BE3 /* FIRInstanceIDTokenStore.m */,
+				D70E831E909C98789ED151FBDEDC5905 /* FIRInstanceIDURLQueryItem.h */,
+				4C56BB89C4FFDB1C03F4EEA1A6A008B9 /* FIRInstanceIDURLQueryItem.m */,
+				F097893F18B1DF9C88D4EC9460602A8F /* FIRInstanceIDUtilities.h */,
+				042B637C5CEB40B305A32416F8CDFD32 /* FIRInstanceIDUtilities.m */,
+				9EEC37D3DF9487EE47D79355154E1FB3 /* FIRInstanceIDVersionUtilities.h */,
+				7910423CDDCAF64471AB4500EC6A8359 /* FIRInstanceIDVersionUtilities.m */,
+				023A1920CEFA87DC23833B3C3DC6509B /* NSError+FIRInstanceID.h */,
+				228A010ACC4B98D785EBE217AE830C42 /* NSError+FIRInstanceID.m */,
+				BE74C7A12EC5DBD05AA9CB923872F911 /* Support Files */,
+			);
+			name = FirebaseInstanceID;
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		F39A4AFAA6ACB26FC1F8E770BD3B034E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14C432492587F63C36D7F4B465EF2AB0 /* FIRAnalyticsConnector.framework */,
+				717D748DAD2974BACC65632C39A40872 /* FirebaseAnalytics.framework */,
+				5F4EC60FE8DD9C6B98649A0650D5D547 /* FirebaseCoreDiagnostics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8861894079B10CD056CE4C4F5B75D5E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FEF695086157C39C4DED2CF08162B962 /* FirebaseStorage.modulemap */,
+				C9E1395EE3171D0131510C3D3C98448E /* FirebaseStorage.xcconfig */,
+				0BA57D4835B7DD382D82146F5CBDFFBE /* FirebaseStorage-dummy.m */,
+				6ADF7FAAA48A0C1464979E8D21822E7B /* FirebaseStorage-Info.plist */,
+				9CF1D03F8C80D00A99EBC6CD5FA4146E /* FirebaseStorage-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FirebaseStorage";
+			sourceTree = "<group>";
+		};
+		F8CC91EF82BEA2E9DFA4BC7DD088E94E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				66733B4CFEA3915FADBAC9CFDFC4D439 /* FirebaseCore.modulemap */,
+				9429DEE5FBDD34FABDBD922F6F269A24 /* FirebaseCore.xcconfig */,
+				DF437F214E11B23760C1A20559F8DD21 /* FirebaseCore-dummy.m */,
+				6AA6140F195ADB3E8A0660C07EE7C065 /* FirebaseCore-Info.plist */,
+				9DB244C96606BCFED8AF2BA281C1DE1C /* FirebaseCore-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FirebaseCore";
+			sourceTree = "<group>";
+		};
 		FF148B7C87A844C6C60CCF282AFDAFE0 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -14210,6 +14562,14 @@
 				73F73CB7A31490BACAD01266FA05A8A9 /* pb_common.h in Headers */,
 				E5B903D47F8497C8D2ED6EBBBCF7FB96 /* pb_decode.h in Headers */,
 				BCC5A602A09EA09CBAA6466161FACC53 /* pb_encode.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1ADC1548623B0AF25F65B3B0B7EA28A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0716A5829B0FB4C908E5C171D387EE8 /* SkyFloatingLabelTextField-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -18011,6 +18371,15 @@
 			buildConfigurations = (
 				9E81971AC1156A719449722EBF0953EA /* Debug */,
 				0882422DF6C37F06131EF4A1ACE846FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B91B77FBB13EFD33FB1AE6F88ABA7C5 /* Build configuration list for PBXNativeTarget "IQKeyboardManagerSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FB0AB126E67AE88666FA712DA0D9CC6 /* Debug */,
+				8CC3C50CD896D7A9D3A703A04A50992F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
