@@ -10,6 +10,7 @@
 		2584FC0E118C60CC92B3E235 /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232B2D87D2ABD85CF14E4AE /* Pods_FoodApp.framework */; };
 		7935D49C2253C0E80046F903 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935D49B2253C0E80046F903 /* Review.swift */; };
 		79388B622251533500B6B8A2 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79388B612251533500B6B8A2 /* UserProfile.swift */; };
+		7940E1B822554A8F00AFC558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7940E1B722554A8F00AFC558 /* Assets.xcassets */; };
 		796D57DE225278CD00D34142 /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D57DC225278CD00D34142 /* ShoppingCartTableViewCell.swift */; };
 		796D57DF225278CD00D34142 /* ShoppingCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796D57DD225278CD00D34142 /* ShoppingCartTableViewCell.xib */; };
 		79735C6F224FE0D600575723 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79735C6E224FE0D600575723 /* FirebaseAPI.swift */; };
@@ -40,6 +41,7 @@
 		4A43F00BDF9963E6B1072C32 /* Pods-FoodApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.release.xcconfig"; path = "Target Support Files/Pods-FoodApp/Pods-FoodApp.release.xcconfig"; sourceTree = "<group>"; };
 		7935D49B2253C0E80046F903 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		79388B612251533500B6B8A2 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		7940E1B722554A8F00AFC558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		796D57DC225278CD00D34142 /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartTableViewCell.swift; sourceTree = "<group>"; };
 		796D57DD225278CD00D34142 /* ShoppingCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartTableViewCell.xib; sourceTree = "<group>"; };
 		79735C6E224FE0D600575723 /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		DE112B0C17C210FFD0D04006 /* FoodApp */ = {
 			isa = PBXGroup;
 			children = (
+				7940E1B722554A8F00AFC558 /* Assets.xcassets */,
 				79EBBE26221340D8006C4341 /* AppDelegate.swift */,
 				BF509C772240661F0064AF82 /* Extensions.swift */,
 				BF439FCD2225BBB000BCDF9A /* Controllers */,
@@ -255,6 +258,7 @@
 				BF8046FB224FDE0A002DE18F /* RatingsTableViewCell.xib in Resources */,
 				79AA0B9E22440C1400B18A88 /* GoogleService-Info.plist in Resources */,
 				79EBBE2C221340D8006C4341 /* Main.storyboard in Resources */,
+				7940E1B822554A8F00AFC558 /* Assets.xcassets in Resources */,
 				BF1D4F32221F38DD000B95D5 /* MenuItemCollectionViewCell.xib in Resources */,
 				796D57DF225278CD00D34142 /* ShoppingCartTableViewCell.xib in Resources */,
 			);
