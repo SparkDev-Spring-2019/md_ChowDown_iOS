@@ -15,7 +15,7 @@ class MenuItemDetailViewController: UIViewController {
     //MARK: Variables
     var pages =  [Pages]()
     
-    var menuItem =  MenuItem()
+//    var menuItem =  MenuItem()
     
     var selectedSegmentIndex: Int {
         return segmentedControl.selectedSegmentIndex
@@ -107,7 +107,7 @@ class MenuItemDetailViewController: UIViewController {
     }
     
     func setPages() {
-        pages.append(OrderViewController(item: MenuItem()))
+//        pages.append(OrderViewController(item: MenuItem()))
         pages.append(DescriptionViewController())
         pages.append(RatingsViewController())
     }

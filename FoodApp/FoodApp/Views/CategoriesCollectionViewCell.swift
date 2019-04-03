@@ -48,5 +48,11 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         layer.shadowRadius = 3.0
         layer.shadowOpacity = 0.3
     }
+    
+    var category: MenuCategory? {
+        didSet {
+           categoryTitleLabel.text = category?.categoryId
+        }
+    }
 }
 

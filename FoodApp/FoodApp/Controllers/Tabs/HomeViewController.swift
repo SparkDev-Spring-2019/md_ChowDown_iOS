@@ -7,18 +7,18 @@
 //
 
 import UIKit
+import Firebase
+import UserNotifications
 
 class HomeViewController: UIViewController {
     
-    // MARK: Variables
+    var menuCategories = [MenuCategory]()
+    
     var dataSource = [MenuItem]()
     
-    var selectedIndexPath: IndexPath?
+    let firestore = FirebaseAPI()
     
-    let categories = ["ALL", "BREAKFAST", "LUNCH", "DINNER", "DESSERT", "PASTRIES"]
-   
-    // MARK: UI Elements
-    lazy var categoriesCollectionView: UICollectionView = { 
+    lazy var categoriesCollectionView: UICollectionView = { // move implementation
         var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -70,7 +70,26 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        setupNavBar()
+        
+        loadCategories()
+        
+        loadMenuItems()
+    }
+    
+    private func loadCategories() {
+        firestore.getMenuCategories(completion: ({(menuItems, error) in
+            self.menuCategories = menuItems
+            self.categoriesCollectionView.reloadData()
+        }))
+    }
+    
+    private func loadMenuItems() {
+        firestore.getMenuItems(menuCategory: MenuCategory(categoryId: "Dessert")) { (menuItems, error) in
+//            self.dataSource = menuItems
+//            self.menuItemsCollectionView.reloadData()
+            
+            print(menuItems)
+        }
     }
     
     //MARK: Setup
@@ -105,36 +124,39 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     // MARK: CollectionView Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        
+        if collectionView == self.categoriesCollectionView {
+            return menuCategories.count
+        } else {
+            return dataSource.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.menuItemsCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
-            cell.foodItemImageView.image = #imageLiteral(resourceName: "pizzapic")
-            return cell
-        } else if collectionView == categoriesCollectionView { // categoriesCollectionView
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.reuseID, for: indexPath) as! CategoriesCollectionViewCell
-            cell.categoryTitleLabel.text = categories[indexPath.row % categories.count]
-            return cell
+        
+            if collectionView == self.menuItemsCollectionView {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
+                
+//                let menuItem = dataSource[indexPath.row]
+//                cell.item = menuItem
+                
+                return cell
+            } else { // categoriesCollectionView
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.reuseID, for: indexPath) as! CategoriesCollectionViewCell
+                
+                let category = menuCategories[indexPath.row]
+                cell.category = category
+
+                return cell
         }
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == menuItemsCollectionView {
-            let detailViewController = MenuItemDetailViewController()
-            navigationController?.pushViewController(detailViewController, animated: true)
-        } else if collectionView == categoriesCollectionView {
-          
-            let cell = collectionView.cellForItem(at: indexPath) as! CategoriesCollectionViewCell
-            cell.contentView.backgroundColor = UIColor.customOrange
-            
-            if let selectedIdx = selectedIndexPath, selectedIdx != indexPath {
-                let selectedCell = collectionView.cellForItem(at: selectedIdx) as! CategoriesCollectionViewCell
-                selectedCell.contentView.backgroundColor = .clear
-            }
-            selectedIndexPath = indexPath
-        }
+        // let item = dataSource.item(at: indexPath.row)
+        let detailViewController = MenuItemDetailViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
+
+        // else if categories, reload collectionview
     }
 }

@@ -10,6 +10,24 @@ import UIKit
 
 class ShoppingCartViewController: UIViewController {
     
+    lazy var shoppingCart: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.allowsSelection = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        return tableView
+    }()
+    
+    lazy var priceSummary: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .orange
+        
+        return view
+    }()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         
@@ -24,6 +42,44 @@ class ShoppingCartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
+        
+        shoppingCart.register(UINib(nibName: ShoppingCartTableViewCell.reuseID, bundle: nil), forCellReuseIdentifier: ShoppingCartTableViewCell.reuseID)
+        
+        view.addSubview(shoppingCart)
+        view.addSubview(priceSummary)
+        
+        view.addConstraints([
+            shoppingCart.topAnchor.constraint(equalTo: view.topAnchor),
+            shoppingCart.bottomAnchor.constraint(equalTo: priceSummary.topAnchor),
+            shoppingCart.leftAnchor.constraint(equalTo: view.leftAnchor),
+            shoppingCart.rightAnchor.constraint(equalTo: view.rightAnchor),
+            priceSummary.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+            priceSummary.topAnchor.constraint(equalTo: shoppingCart.bottomAnchor),
+            priceSummary.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            priceSummary.leftAnchor.constraint(equalTo: view.leftAnchor),
+            priceSummary.rightAnchor.constraint(equalTo: view.rightAnchor),])
+        
     }
+
+}
+
+extension ShoppingCartViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingCartTableViewCell.reuseID, for: indexPath) as! ShoppingCartTableViewCell
+        
+        cell.heightAnchor.constraint(equalToConstant: 50)
+        
+        return cell
+    }
+    
+}
+
+extension ShoppingCartViewController: UITableViewDelegate {
+    
 }

@@ -7,8 +7,10 @@ target 'FoodApp' do
   # Pods for FoodApp
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'IQKeyboardManagerSwift'
+  pod 'CodableFirebase'
+
 end

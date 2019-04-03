@@ -62,4 +62,15 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
         ratingLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
         priceLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
     }
+
+    var item: MenuItem? {
+        didSet {
+            foodTitleLabel.text = item?.name
+            foodTypeLabel.text = "Category"
+            estimatedTimeLabel.text = item?.completionTime
+            ratingLabel.text = item?.rating
+            priceLabel.text = item?.price
+        }
+    }
+    
 }
