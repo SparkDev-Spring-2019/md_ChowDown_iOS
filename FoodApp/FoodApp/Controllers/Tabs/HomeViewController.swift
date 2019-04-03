@@ -88,7 +88,7 @@ class HomeViewController: UIViewController {
 //            self.dataSource = menuItems
 //            self.menuItemsCollectionView.reloadData()
             
-            print(menuItems)
+            print("Menu items \(menuItems)")
         }
     }
     

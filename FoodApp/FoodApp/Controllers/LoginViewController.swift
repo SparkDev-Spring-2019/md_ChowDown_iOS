@@ -104,11 +104,59 @@ class LoginViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 100)
             ])
     }
+    
 
     // MARK: Actions
     @objc func loginButtonTapped(_ sender: UIButton) {
-        let tabBarController = TabBarController()
-        present(tabBarController, animated: true)
+        let userEmail = emailTextField.text;
+        let userPassword = passwordTextField.text;
+        
+        
+        let alert = UIAlertController(title: "Invalid login", message: "Please make sure you enter both your email and your password", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+        
+        if((userEmail?.isEmpty)! || (userPassword?.isEmpty)!){
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        if validate(field: emailTextField) == nil {
+            let alert = UIAlertController(title: "Invalid email.", message: "Please enter valid email", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
+            return
+        } else {
+            
+            FirebaseAPI().loginUser(email: userEmail!, password: userPassword!) { (error, user) in
+                 
+                    let tabBarController = TabBarController()
+                    self.present(tabBarController, animated: true)
+            }
+        }
+    }
+    
+    func validate(field: UITextField) -> String?{
+        guard let trimmedText = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+            return nil
+        }
+        
+        guard let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else{
+            return nil
+        }
+        
+        let range = NSMakeRange(0, NSString(string: trimmedText).length)
+        let allMatches = dataDetector.matches(in: trimmedText, options: [], range: range)
+        
+        if allMatches.count == 1,
+            allMatches.first?.url?.absoluteString.contains("mailto:") == true
+        {
+            return trimmedText
+        }
+        
+        return nil
     }
 }
 
