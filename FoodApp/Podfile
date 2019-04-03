@@ -10,5 +10,6 @@ target 'FoodApp' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
+  pod 'CodableFirebase'
 
 end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7935D49C2253C0E80046F903 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935D49B2253C0E80046F903 /* Review.swift */; };
 		79388B622251533500B6B8A2 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79388B612251533500B6B8A2 /* UserProfile.swift */; };
 		796D57DE225278CD00D34142 /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D57DC225278CD00D34142 /* ShoppingCartTableViewCell.swift */; };
 		796D57DF225278CD00D34142 /* ShoppingCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796D57DD225278CD00D34142 /* ShoppingCartTableViewCell.xib */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7935D49B2253C0E80046F903 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		79388B612251533500B6B8A2 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		796D57DC225278CD00D34142 /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartTableViewCell.swift; sourceTree = "<group>"; };
 		796D57DD225278CD00D34142 /* ShoppingCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartTableViewCell.xib; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				79735C6E224FE0D600575723 /* FirebaseAPI.swift */,
 				79735C70224FE19F00575723 /* MenuCategory.swift */,
 				79388B612251533500B6B8A2 /* UserProfile.swift */,
+				7935D49B2253C0E80046F903 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FoodApp/Pods-FoodApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -298,6 +302,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -324,6 +329,7 @@
 				BF0A38E2224416E900651A6E /* DescriptionViewController.swift in Sources */,
 				79EBBE29221340D8006C4341 /* HomeViewController.swift in Sources */,
 				79EBBE27221340D8006C4341 /* AppDelegate.swift in Sources */,
+				7935D49C2253C0E80046F903 /* Review.swift in Sources */,
 				BF509C52223C78DA0064AF82 /* MenuItemDetailViewController.swift in Sources */,
 				BF1D4F2B221F20A9000B95D5 /* TabBarController.swift in Sources */,
 				796D57DE225278CD00D34142 /* ShoppingCartTableViewCell.swift in Sources */,

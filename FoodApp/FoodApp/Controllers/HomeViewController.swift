@@ -85,15 +85,11 @@ class HomeViewController: UIViewController {
     }
     
     private func loadMenuItems() {
-        firestore.getMenuItems(menuCategory: MenuCategory(categoryId: "Lunch")) { (menuItems, error) in
+        firestore.getMenuItems(menuCategory: MenuCategory(categoryId: "Dessert")) { (menuItems, error) in
 //            self.dataSource = menuItems
 //            self.menuItemsCollectionView.reloadData()
             
-            if error == nil {
-                print(error)
-            } else {
-                
-            }
+            print(menuItems)
         }
     }
     

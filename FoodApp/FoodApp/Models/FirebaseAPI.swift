@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CodableFirebase
 
 class FirebaseAPI {
     
@@ -94,7 +95,7 @@ class FirebaseAPI {
         let menuItemsRef = firestore.collection("Foods")
 
             menuItemsRef.whereField("category", arrayContains: menuCategory.categoryId)
-            menuItemsRef.getDocuments() { (querySnapshot, err) in
+                .getDocuments() { (querySnapshot, err) in
 
 //                if let err = err {
 //                    print("Error getting documents: \(err)")
@@ -104,7 +105,7 @@ class FirebaseAPI {
 //                    }
 //                }
     
-                if err == nil {
+                if let err = err {
 
                     print("Error getting documents: \(err)")
                     completion([], err)
@@ -117,11 +118,10 @@ class FirebaseAPI {
 
                         for document in querySnapshot!.documents {
 
-                            var dict = document.data()
-                            let data = try JSONSerialization.data(withJSONObject: dict, options: [])
-                            let menuItem = try JSONDecoder().decode(MenuItem.self, from: data)
+                            let dict = document.data()
+                            
+                            let menuItem = try FirestoreDecoder().decode(MenuItem.self, from: dict)
                             menuItems.append(menuItem)
-                            print(dict)
 
                         }
 

@@ -20,10 +20,11 @@ struct MenuItem: Codable {
     var completionTime: String?
     var isVegan: Bool?
     var reviewsRefId: String?
+    var latestReview: Review?
     
-    init(id: String, category: [String], name: String, description: String, foodImageUrl: String, rating: String, price: String, completionTime: String, isVegan: Bool, reviewsRefId: String) {
+    init(id: String, category: [String], name: String, description: String, foodImageUrl: String, rating: String, price: String, completionTime: String, isVegan: Bool, reviewsRefId: String, latestReview: Review) {
         self.id = id
-        self.category = nil
+        self.category = category
         self.name = name
         self.description = description
         self.foodImageUrl = foodImageUrl
@@ -32,6 +33,7 @@ struct MenuItem: Codable {
         self.completionTime = completionTime
         self.isVegan = isVegan
         self.reviewsRefId = reviewsRefId
+        self.latestReview = latestReview
     }
     
     var dictionary: [String: Any] {
@@ -46,6 +48,7 @@ struct MenuItem: Codable {
         dictionary["completionTime"] = completionTime
         dictionary["isVegan"] = isVegan
         dictionary["reviewsRefId"] = reviewsRefId
+        dictionary["latestReview"] = latestReview
         
         return dictionary
     }
