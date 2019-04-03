@@ -21,4 +21,18 @@ struct Review: Codable {
     var foodId: String
     var rating: Double
     
+    
+    var dictionary: [String: Any] {
+        do {
+            let jsonEncoder = JSONEncoder()
+            jsonEncoder.dateEncodingStrategy = .secondsSince1970
+            let jsonData = try jsonEncoder.encode(self)
+            var json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
+            json["timestamp"] = timestamp
+            return json
+        } catch {
+            print("Error converting to json \(error.localizedDescription)")
+            return [:]
+        }
+    }
 }

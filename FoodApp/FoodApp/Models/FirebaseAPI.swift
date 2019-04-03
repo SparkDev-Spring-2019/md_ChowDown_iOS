@@ -105,7 +105,7 @@ class FirebaseAPI {
 //                    }
 //                }
     
-                if let err = err {
+                if err != nil {
 
                     print("Error getting documents: \(err)")
                     completion([], err)
@@ -121,6 +121,8 @@ class FirebaseAPI {
                             let dict = document.data()
                             
                             let menuItem = try FirestoreDecoder().decode(MenuItem.self, from: dict)
+                            print("Menu item: \(menuItem)")
+                            
                             menuItems.append(menuItem)
 
                         }

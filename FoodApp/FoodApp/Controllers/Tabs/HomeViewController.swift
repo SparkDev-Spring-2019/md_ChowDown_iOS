@@ -87,10 +87,8 @@ class HomeViewController: UIViewController {
     
     private func loadMenuItems() {
         firestore.getMenuItems(menuCategory: MenuCategory(categoryId: "Dessert")) { (menuItems, error) in
-//            self.dataSource = menuItems
-//            self.menuItemsCollectionView.reloadData()
-            
-            print("Menu items \(menuItems)")
+            self.dataSource = menuItems
+            self.menuItemsCollectionView.reloadData()
         }
     }
     
@@ -139,8 +137,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if collectionView == self.menuItemsCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuItemCollectionViewCell.reuseID, for: indexPath) as! MenuItemCollectionViewCell
                 
-//                let menuItem = dataSource[indexPath.row]
-//                cell.item = menuItem
+                let menuItem = dataSource[indexPath.row]
+                cell.item = menuItem
                 
                 return cell
             } else { // categoriesCollectionView
