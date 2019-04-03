@@ -23,16 +23,29 @@ class ShoppingCartViewController: UIViewController {
     lazy var priceSummary: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .orange
-        
+        view.backgroundColor = .white
         return view
+    }()
+    
+    lazy var priceTotalLabel: UILabel = {
+        let text = UILabel(frame: .zero)
+        text.text = "Total"
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
+    }()
+    
+    lazy var priceTotal: UILabel = {
+        let text = UILabel(frame: .zero)
+        text.text = "$7.59"
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
     }()
     
     init() {
         super.init(nibName: nil, bundle: nil)
         
         title = "Shopping Cart"
-        navigationItem.title = "Shopping Cart"
+//        navigationItem.title = "Shopping Cart"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,7 +60,10 @@ class ShoppingCartViewController: UIViewController {
         shoppingCart.register(UINib(nibName: ShoppingCartTableViewCell.reuseID, bundle: nil), forCellReuseIdentifier: ShoppingCartTableViewCell.reuseID)
         
         view.addSubview(shoppingCart)
+        priceSummary.addSubview(priceTotal)
+        priceSummary.addSubview(priceTotalLabel)
         view.addSubview(priceSummary)
+        
         
         view.addConstraints([
             shoppingCart.topAnchor.constraint(equalTo: view.topAnchor),
@@ -58,7 +74,11 @@ class ShoppingCartViewController: UIViewController {
             priceSummary.topAnchor.constraint(equalTo: shoppingCart.bottomAnchor),
             priceSummary.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             priceSummary.leftAnchor.constraint(equalTo: view.leftAnchor),
-            priceSummary.rightAnchor.constraint(equalTo: view.rightAnchor),])
+            priceSummary.rightAnchor.constraint(equalTo: view.rightAnchor),
+            priceTotal.rightAnchor.constraint(equalTo: priceSummary.rightAnchor, constant: -30),
+            priceTotal.heightAnchor.constraint(equalToConstant: 30),
+            priceTotalLabel.leftAnchor.constraint(equalTo: priceSummary.leftAnchor, constant: 30),
+            priceTotal.heightAnchor.constraint(equalToConstant: 30),])
         
     }
 

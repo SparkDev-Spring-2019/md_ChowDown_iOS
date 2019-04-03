@@ -59,6 +59,8 @@ class HomeViewController: UIViewController {
     // MARK: init
     init() {
         super.init(nibName: nil, bundle: nil)
+        
+        title = "Home"
     }
     
     required init?(coder aDecoder: NSCoder) {

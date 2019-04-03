@@ -20,10 +20,16 @@ class TabBarController: UITabBarController {
     // MARK: Setup
     func setupControllers() {
         
+        let home = HomeViewController()
+        home.tabBarItem.image = UIImage(named: "home")
+        
         let shoppingCart = ShoppingCartViewController()
         shoppingCart.tabBarItem.image = UIImage(named: "cart")
         
-        let viewControllerArray: [UIViewController] =   [HomeViewController(), shoppingCart, ProfileViewController()]
+        let profile = ProfileViewController()
+        profile.tabBarItem.image = UIImage(named: "user")
+        
+        let viewControllerArray: [UIViewController] =   [home, shoppingCart,profile]
         
         let navigationControllers = viewControllerArray.map { UINavigationController(rootViewController: $0)}
         viewControllers = navigationControllers
