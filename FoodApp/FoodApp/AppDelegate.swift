@@ -21,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.rootViewController = LoginViewController()
-        window?.rootViewController = TabBarController()
+        window?.rootViewController = LoginViewController()
         window?.makeKeyAndVisible()
         
         UITabBar.appearance().tintColor = .customOrange
